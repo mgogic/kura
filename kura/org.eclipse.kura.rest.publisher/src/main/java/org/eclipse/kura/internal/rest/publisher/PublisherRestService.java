@@ -89,8 +89,6 @@ public class PublisherRestService {
         }
     }
 
-    private static final String BAD_PUBLISH_REQUEST_ERROR_MESSAGE = "Bad request, expected request format:{\"metric_name1\":value, \"metric_name2\":value}";
-    private static final String BAD_REQUEST_METRIC_VALUE_TYPE_ERROR_MESSAGE = "Bad request. Allowed metric values: String, Number and Boolean";
     private static final Encoder BASE64_ENCODER = Base64.getEncoder();
 
     private static final Logger logger = LoggerFactory.getLogger(PublisherRestService.class);
@@ -130,6 +128,13 @@ public class PublisherRestService {
         logger.info("Activating PublisherRestService... Done.");
     }
 
+    private void closeCloudClient() {
+        if (nonNull(this.cloudClient)) {
+            this.cloudClient.release();
+            this.cloudClient = null;
+        }
+    }
+
     protected void deactivate(ComponentContext componentContext) {
         logger.debug("Deactivating PublisherRestService...");
 
@@ -144,95 +149,6 @@ public class PublisherRestService {
         }
 
         logger.debug("Deactivating PublisherRestService... Done.");
-    }
-
-    public void updated(Map<String, Object> properties) {
-        logger.info("Updated PublisherRestService...");
-
-        // store the properties received
-        this.properties = properties;
-
-        this.publisherOptions = new PublisherOptions(properties);
-
-        if (nonNull(this.cloudServiceTracker)) {
-            this.cloudServiceTracker.close();
-        }
-        initCloudServiceTracking();
-
-        logger.info("Updated PublisherRestService... Done.");
-    }
-
-    // ----------------------------------------------------------------
-    //
-    // Private Methods
-    //
-    // ----------------------------------------------------------------
-
-    @POST
-    @RolesAllowed("assets")
-    @Path("/publish")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public JsonElement read(Map<String, Object> publishRequest) throws KuraException {
-        logger.debug("Request:" + publishRequest.toString());
-        validateRequest(publishRequest);
-
-        // fetch the publishing configuration from the publishing properties
-        String topic = "data/metrics";
-        Integer qos = 0;
-        Boolean retain = false;
-
-        // Allocate a new payload
-        KuraPayload payload = new KuraPayload();
-
-        // Timestamp the message
-        payload.setTimestamp(new Date());
-
-        // Add metrics to the payload
-        for (Map.Entry<String, Object> metric : publishRequest.entrySet()) {
-            payload.addMetric(metric.getKey(), metric.getValue());
-        }
-
-        // Publish the message
-        int messageId = 42;
-        try {
-            if (nonNull(this.cloudService) && nonNull(this.cloudClient)) {
-                messageId = this.cloudClient.publish(topic, payload, qos, retain);
-                logger.info("Published to {} message: {} with ID: {}", new Object[] { topic, payload, messageId });
-            }
-        } catch (Exception e) {
-            logger.error("Cannot publish topic: {}", topic, e);
-        }
-
-        return getChannelSerializer().toJsonTree(messageId);
-    }
-
-    private void initCloudServiceTracking() {
-        String selectedCloudServicePid = this.publisherOptions.getCloudServicePid();
-        String filterString = String.format("(&(%s=%s)(kura.service.pid=%s))", Constants.OBJECTCLASS,
-                CloudService.class.getName(), selectedCloudServicePid);
-        Filter filter = null;
-        try {
-            filter = this.bundleContext.createFilter(filterString);
-        } catch (InvalidSyntaxException e) {
-            logger.error("Filter setup exception ", e);
-        }
-        this.cloudServiceTracker = new ServiceTracker<>(this.bundleContext, filter, this.cloudServiceTrackerCustomizer);
-        this.cloudServiceTracker.open();
-    }
-
-    private void closeCloudClient() {
-        if (nonNull(this.cloudClient)) {
-            this.cloudClient.release();
-            this.cloudClient = null;
-        }
-    }
-
-    private void setupCloudClient() throws KuraException {
-        closeCloudClient();
-        // create the new CloudClient for the specified application
-        final String appId = this.publisherOptions.getAppId();
-        this.cloudClient = this.cloudService.newCloudClient(appId);
     }
 
     private Gson getChannelSerializer() {
@@ -255,21 +171,104 @@ public class PublisherRestService {
         return channelSerializer;
     }
 
-    private void validateRequest(Map<String, Object> metrics) {
-        // Check if request is empty or equals null
-        if (metrics == null || metrics.isEmpty()) {
-            throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
-                    .entity(BAD_PUBLISH_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+    private void initCloudServiceTracking() {
+        String selectedCloudServicePid = this.publisherOptions.getCloudServicePid();
+        String filterString = String.format("(&(%s=%s)(kura.service.pid=%s))", Constants.OBJECTCLASS,
+                CloudService.class.getName(), selectedCloudServicePid);
+        Filter filter = null;
+        try {
+            filter = this.bundleContext.createFilter(filterString);
+        } catch (InvalidSyntaxException e) {
+            logger.error("Filter setup exception ", e);
         }
+        this.cloudServiceTracker = new ServiceTracker<>(this.bundleContext, filter, this.cloudServiceTrackerCustomizer);
+        this.cloudServiceTracker.open();
+    }
 
-        // Check if metric values are of types String, Number, Boolean and are not Objects
-        Object value;
-        for (Map.Entry<String, Object> metric : metrics.entrySet()) {
-            value = metric.getValue();
-            if (!(value instanceof String) && !(value instanceof Number) && !(value instanceof Boolean)) {
-                throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
-                        .entity(BAD_REQUEST_METRIC_VALUE_TYPE_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+    @POST
+    @RolesAllowed("assets")
+    @Path("/publish")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public JsonElement read(PublishRequest publishRequest) throws KuraException {
+        logger.debug("Request:" + publishRequest.toString());
+        publishRequest.validate();
+
+        // fetch the publishing configuration from the publishing properties
+        String topic = "data/metrics";
+        Integer qos = 0;
+        Boolean retain = false;
+
+        // Allocate a new payload
+        KuraPayload payload = new KuraPayload();
+
+        // Timestamp the message
+        payload.setTimestamp(new Date());
+
+        // Add metrics to the payload
+        for (Metric metric : publishRequest.getRequestItems()) {
+            if (metric.getValue() instanceof Number) {
+                if ("int".equals(metric.getType())) {
+                    payload.addMetric(metric.getName(), ((Double) metric.getValue()).intValue());
+                } else if ("long".equals(metric.getType())) {
+                    payload.addMetric(metric.getName(), ((Double) metric.getValue()).longValue());
+                } else if ("double".equals(metric.getType())) {
+                    payload.addMetric(metric.getName(), (Double) metric.getValue());
+                } else if ("float".equals(metric.getType())) {
+                    payload.addMetric(metric.getName(), ((Double) metric.getValue()).floatValue());
+                }
+            } else if (metric.getValue() instanceof String) {
+                if ("base64binary".equals(metric.getType())) {
+                    payload.addMetric(metric.getName(), String.valueOf(metric.getValue()).getBytes());
+                } else {
+                    payload.addMetric(metric.getName(), metric.getValue());
+                }
+            } else if (metric.getValue() instanceof Boolean) {
+                payload.addMetric(metric.getName(), metric.getValue());
             }
         }
+
+        if (payload.metrics().isEmpty()) {
+            logger.warn("Payload is empty.");
+        }
+
+        // Publish the message
+        int messageId = 0;
+        try {
+            if (nonNull(this.cloudService) && nonNull(this.cloudClient)) {
+                messageId = this.cloudClient.publish(topic, payload, qos, retain);
+                logger.info("Published to {} message: {} with ID: {}", new Object[] { topic, payload, messageId });
+            }
+        } catch (Exception e) {
+            logger.error("Cannot publish topic: {}", topic, e);
+            throw new WebApplicationException(
+                    Response.status(Status.BAD_REQUEST).entity(e.getMessage()).type(MediaType.TEXT_PLAIN).build());
+        }
+
+        return getChannelSerializer().toJsonTree(messageId);
     }
+
+    private void setupCloudClient() throws KuraException {
+        closeCloudClient();
+        // create the new CloudClient for the specified application
+        final String appId = this.publisherOptions.getAppId();
+        this.cloudClient = this.cloudService.newCloudClient(appId);
+    }
+
+    public void updated(Map<String, Object> properties) {
+        logger.info("Updated PublisherRestService...");
+
+        // store the properties received
+        this.properties = properties;
+
+        this.publisherOptions = new PublisherOptions(properties);
+
+        if (nonNull(this.cloudServiceTracker)) {
+            this.cloudServiceTracker.close();
+        }
+        initCloudServiceTracking();
+
+        logger.info("Updated PublisherRestService... Done.");
+    }
+
 }

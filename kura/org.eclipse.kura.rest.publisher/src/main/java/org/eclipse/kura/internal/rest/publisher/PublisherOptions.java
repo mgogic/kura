@@ -7,6 +7,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  *******************************************************************************/
+
 package org.eclipse.kura.internal.rest.publisher;
 
 import static java.util.Objects.nonNull;
