@@ -30,6 +30,7 @@ import javax.ws.rs.core.Response.Status;
 import org.eclipse.kura.KuraException;
 import org.eclipse.kura.cloud.CloudClient;
 import org.eclipse.kura.cloud.CloudService;
+import org.eclipse.kura.configuration.ConfigurableComponent;
 import org.eclipse.kura.message.KuraPayload;
 import org.eclipse.kura.type.TypedValue;
 import org.osgi.framework.BundleContext;
@@ -50,7 +51,7 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;
 
 @Path("/publish")
-public class PublisherRestService {
+public class PublisherRestService implements ConfigurableComponent {
 
     /**
      * Inner class defined to track the CloudServices as they get added, modified or removed.
