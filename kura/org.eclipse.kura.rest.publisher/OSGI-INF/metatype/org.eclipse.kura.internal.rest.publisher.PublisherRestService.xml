@@ -89,7 +89,6 @@
             required="true"
             default="0.1"
             description="Increment value for the temperature metric."/>
-            
 
     </OCD>
     <Designate pid="org.eclipse.kura.internal.rest.publisher.PublisherRestService" factoryPid="org.eclipse.kura.internal.rest.publisher.PublisherRestService">

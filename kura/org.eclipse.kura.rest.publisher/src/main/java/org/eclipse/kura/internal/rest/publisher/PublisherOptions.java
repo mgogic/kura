@@ -23,6 +23,9 @@ final class PublisherOptions {
     private static final int DEFAULT_PUBLISH_QOS = 0;
     private static final boolean DEFAULT_PUBLISH_RETAIN = false;
     private static final String DEFAULT_APP_TOPIC = "data/metrics";
+    private static final int DEFAULT_PUBLISH_RATE = 1000;
+    private static final int DEFAULT_TEMP_INIT = 10;
+    private static final double DEFAULT_TEMP_INC = 0.1;
 
     // Publishing Property Names
     private static final String PUBLISH_TOPIC_PROP_NAME = "publish.appTopic";
@@ -30,6 +33,9 @@ final class PublisherOptions {
     private static final String PUBLISH_RETAIN_PROP_NAME = "publish.retain";
     private static final String CLOUD_SERVICE_PROP_NAME = "cloud.service.pid";
     private static final String APP_ID_PROP_NAME = "app.id";
+    private static final String PUBLISH_RATE_NAME = "publish.rate";
+    private static final String TEMPARATURE_INITIAL_NAME = "metric.temperature.initial";
+    private static final String TEMPARATURE_INCREMENT_NAME = "metric.temperature.increment";
 
     private final Map<String, Object> properties;
 
@@ -76,11 +82,38 @@ final class PublisherOptions {
 
     String getAppTopic() {
         String appTopic = DEFAULT_APP_TOPIC;
-        Object app = this.properties.get(PUBLISH_TOPIC_PROP_NAME);
-        if (nonNull(app) && app instanceof String) {
-            appTopic = String.valueOf(app);
+        Object topic = this.properties.get(PUBLISH_TOPIC_PROP_NAME);
+        if (nonNull(topic) && topic instanceof String) {
+            appTopic = String.valueOf(topic);
         }
         return appTopic;
+    }
+    
+    int getPublishRate() {
+        int publishRate = DEFAULT_PUBLISH_RATE;
+        Object rate = this.properties.get(PUBLISH_RATE_NAME);
+        if (nonNull(rate) && rate instanceof String) {
+            publishRate = (int) rate;
+        }
+        return publishRate;
+    }
+    
+    int getTemperatureInit() {
+        int tempInit = DEFAULT_TEMP_INIT;
+        Object init = this.properties.get(TEMPARATURE_INITIAL_NAME);
+        if (nonNull(init) && init instanceof String) {
+            tempInit = (int) init;
+        }
+        return tempInit;
+    }
+    
+    double getTemperatureInc() {
+        double tempInc = DEFAULT_TEMP_INC;
+        Object inc = this.properties.get(TEMPARATURE_INCREMENT_NAME);
+        if (nonNull(inc) && inc instanceof String) {
+            tempInc = (double) inc;
+        }
+        return tempInc;
     }
 
 }
