@@ -10,89 +10,86 @@
 
 package org.eclipse.kura.internal.rest.device;
 
-import java.util.List;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Device {
 
-    @SerializedName("deviceId")
+    @SerializedName("deviceID")
     @Expose
-    private String deviceId;
-    @SerializedName("address")
+    private String deviceID;
+    @SerializedName("componentID")
     @Expose
-    private String address;
-    @SerializedName("name")
+    private String componentID;
+    @SerializedName("value")
     @Expose
-    private String name;
-    @SerializedName("description")
+    private String value;
+    @SerializedName("unit")
     @Expose
-    private String description;
-    @SerializedName("protocol")
+    private String unit;
+    @SerializedName("lastUpdate")
     @Expose
-    private String protocol;
-    @SerializedName("path")
+    private String lastUpdate;
+    @SerializedName("format")
     @Expose
-    private String path;
-    @SerializedName("streams")
-    @Expose
-    private List<DeviceComponent> streams = null;
+    private String format;
 
-    public String getDeviceId() {
-        return deviceId;
+    public Device(String deviceID, String componentID, String value, String unit, String format, String lastUpdate) {
+        super();
+        this.deviceID = deviceID;
+        this.componentID = componentID;
+        this.value = value;
+        this.unit = unit;
+        this.format = format;
+        this.lastUpdate = lastUpdate;
     }
 
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
+    public String getComponentID() {
+        return componentID;
     }
 
-    public String getAddress() {
-        return address;
+    public void setComponentID(String componentID) {
+        this.componentID = componentID;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getValue() {
+        return value;
     }
 
-    public String getName() {
-        return name;
+    public void setValue(String value) {
+        this.value = value;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getUnit() {
+        return unit;
     }
 
-    public String getDescription() {
-        return description;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getLastUpdate() {
+        return lastUpdate;
     }
 
-    public String getProtocol() {
-        return protocol;
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
-    public void setProtocol(String protocol) {
-        this.protocol = protocol;
+    public String getFormat() {
+        return format;
     }
 
-    public String getPath() {
-        return path;
+    public void setFormat(String format) {
+        this.format = format;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public String getDeviceID() {
+        return deviceID;
     }
 
-    public List<DeviceComponent> getStreams() {
-        return streams;
-    }
-
-    public void setStreams(List<DeviceComponent> streams) {
-        this.streams = streams;
+    public void setDeviceID(String deviceID) {
+        this.deviceID = deviceID;
     }
 
 }
