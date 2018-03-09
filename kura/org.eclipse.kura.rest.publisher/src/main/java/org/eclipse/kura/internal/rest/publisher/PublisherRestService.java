@@ -32,7 +32,6 @@ import org.eclipse.kura.cloud.CloudClient;
 import org.eclipse.kura.cloud.CloudService;
 import org.eclipse.kura.configuration.ConfigurableComponent;
 import org.eclipse.kura.message.KuraPayload;
-import org.eclipse.kura.type.TypedValue;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.Filter;
@@ -45,10 +44,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializer;
 
 @Path("/publish")
 public class PublisherRestService implements ConfigurableComponent {
@@ -89,6 +86,8 @@ public class PublisherRestService implements ConfigurableComponent {
             PublisherRestService.this.cloudService = null;
         }
     }
+
+    private static final String BAD_PUBLISH_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: { \"metrics\": [ { \"name\" : \"...\", \"type\" : \"...\", \"value\" : \"...\" }, ... ] }";
 
     private static final Encoder BASE64_ENCODER = Base64.getEncoder();
 
@@ -152,26 +151,6 @@ public class PublisherRestService implements ConfigurableComponent {
         logger.debug("Deactivating PublisherRestService... Done.");
     }
 
-    private Gson getChannelSerializer() {
-        if (channelSerializer == null) {
-            channelSerializer = new GsonBuilder().registerTypeAdapter(TypedValue.class,
-                    (JsonSerializer<TypedValue<?>>) (typedValue, type, context) -> {
-                        final Object value = typedValue.getValue();
-                        if (value instanceof Number) {
-                            return new JsonPrimitive((Number) value);
-                        } else if (value instanceof String) {
-                            return new JsonPrimitive((String) value);
-                        } else if (value instanceof byte[]) {
-                            return new JsonPrimitive(BASE64_ENCODER.encodeToString((byte[]) value));
-                        } else if (value instanceof Boolean) {
-                            return new JsonPrimitive((Boolean) value);
-                        }
-                        return null;
-                    }).create();
-        }
-        return channelSerializer;
-    }
-
     private void initCloudServiceTracking() {
         String selectedCloudServicePid = this.publisherOptions.getCloudServicePid();
         String filterString = String.format("(&(%s=%s)(kura.service.pid=%s))", Constants.OBJECTCLASS,
@@ -192,13 +171,19 @@ public class PublisherRestService implements ConfigurableComponent {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public JsonElement read(PublishRequest publishRequest) throws KuraException {
-        logger.debug("Request:" + publishRequest.toString());
+        logger.debug("Request: {}", publishRequest);
+
+        if (publishRequest == null) {
+            throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
+                    .entity(BAD_PUBLISH_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+        }
+
         publishRequest.validate();
 
         // fetch the publishing configuration from the publishing properties
-        String topic = "data/metrics";
-        Integer qos = 0;
-        Boolean retain = false;
+        String topic = this.publisherOptions.getAppTopic();
+        Integer qos = this.publisherOptions.getPublishQos();
+        Boolean retain = this.publisherOptions.getPublishRetain();
 
         // Allocate a new payload
         KuraPayload payload = new KuraPayload();
@@ -208,24 +193,40 @@ public class PublisherRestService implements ConfigurableComponent {
 
         // Add metrics to the payload
         for (Metric metric : publishRequest.getRequestItems()) {
+            String metricName = metric.getName();
+            String metricType = metric.getType();
+            Object metricValue = metric.getValue();
+
             if (metric.getValue() instanceof Number) {
-                if ("int".equals(metric.getType())) {
-                    payload.addMetric(metric.getName(), ((Double) metric.getValue()).intValue());
-                } else if ("long".equals(metric.getType())) {
-                    payload.addMetric(metric.getName(), ((Double) metric.getValue()).longValue());
-                } else if ("double".equals(metric.getType())) {
-                    payload.addMetric(metric.getName(), (Double) metric.getValue());
-                } else if ("float".equals(metric.getType())) {
-                    payload.addMetric(metric.getName(), ((Double) metric.getValue()).floatValue());
+                if ("int".equals(metricType)) {
+                    payload.addMetric(metricName, ((Double) metricValue).intValue());
+                } else if ("long".equals(metricType)) {
+                    payload.addMetric(metricName, ((Double) metricValue).longValue());
+                } else if ("double".equals(metricType)) {
+                    payload.addMetric(metricName, (Double) metricValue);
+                } else if ("float".equals(metricType)) {
+                    payload.addMetric(metricName, ((Double) metricValue).floatValue());
+                } else if ("string".equals(metricType)) {
+                    payload.addMetric(metricName, String.valueOf(metricValue));
                 }
             } else if (metric.getValue() instanceof String) {
-                if ("base64binary".equals(metric.getType())) {
-                    payload.addMetric(metric.getName(), String.valueOf(metric.getValue()).getBytes());
-                } else {
-                    payload.addMetric(metric.getName(), metric.getValue());
+                String metricValueString = String.valueOf(metric.getValue());
+
+                if ("base64Binary".equals(metricType)) {
+                    payload.addMetric(metricName, metricValueString.getBytes());
+                } else if ("string".equals(metricType)) {
+                    payload.addMetric(metricName, metricValueString);
+                } else if ("int".equals(metricType)) {
+                    payload.addMetric(metricName, Integer.parseInt(metricValueString));
+                } else if ("long".equals(metricType)) {
+                    payload.addMetric(metricName, Long.parseLong(metricValueString));
+                } else if ("double".equals(metricType)) {
+                    payload.addMetric(metricName, Double.parseDouble(metricValueString));
+                } else if ("float".equals(metricType)) {
+                    payload.addMetric(metricName, Float.parseFloat(metricValueString));
                 }
             } else if (metric.getValue() instanceof Boolean) {
-                payload.addMetric(metric.getName(), metric.getValue());
+                payload.addMetric(metricName, metricValue);
             }
         }
 
@@ -246,7 +247,7 @@ public class PublisherRestService implements ConfigurableComponent {
                     Response.status(Status.BAD_REQUEST).entity(e.getMessage()).type(MediaType.TEXT_PLAIN).build());
         }
 
-        return getChannelSerializer().toJsonTree(messageId);
+        return new JsonPrimitive(messageId);
     }
 
     private void setupCloudClient() throws KuraException {

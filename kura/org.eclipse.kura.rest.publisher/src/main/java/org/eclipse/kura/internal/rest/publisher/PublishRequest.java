@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response.Status;
 
 public class PublishRequest {
 
-    private static final String BAD_PUBLISH_REQUEST_ERROR_MESSAGE = "Bad request, expected request format:[ { \"name\" : \"...\", \"type\" : \"...\", \"value\" : \"...\" }, ... ]";
+    private static final String BAD_PUBLISH_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: { \"metrics\": [ { \"name\" : \"...\", \"type\" : \"...\", \"value\" : \"...\" }, ... ] }";
 
     private List<Metric> metrics;
 
@@ -32,6 +32,13 @@ public class PublishRequest {
         if (this.metrics == null || this.metrics.isEmpty()) {
             throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
                     .entity(BAD_PUBLISH_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+        }
+
+        for (Metric metric : this.metrics) {
+            if (metric.getName() == null || metric.getType() == null || metric.getValue() == null) {
+                throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
+                        .entity(BAD_PUBLISH_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+            }
         }
     }
 }
