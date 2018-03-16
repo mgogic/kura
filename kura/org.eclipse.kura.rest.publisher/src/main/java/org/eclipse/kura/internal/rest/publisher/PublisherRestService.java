@@ -47,7 +47,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 
-@Path("/publish")
+@Path("/cloud-publisher")
 public class PublisherRestService implements ConfigurableComponent {
 
     /**
@@ -88,6 +88,7 @@ public class PublisherRestService implements ConfigurableComponent {
     }
 
     private static final String BAD_PUBLISH_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: { \"metrics\": [ { \"name\" : \"...\", \"type\" : \"...\", \"value\" : \"...\" }, ... ] }";
+    private static final String INVALID_METRIC_TYPE_ERROR_MESSAGE = "Bad request, invalid type. Valid metric types are: string, double, int, float, long, boolean, base64Binary.";
 
     private static final Encoder BASE64_ENCODER = Base64.getEncoder();
 
@@ -170,7 +171,7 @@ public class PublisherRestService implements ConfigurableComponent {
     @Path("/publish")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public JsonElement read(PublishRequest publishRequest) throws KuraException {
+    public JsonElement publish(PublishRequest publishRequest) throws KuraException {
         logger.debug("Request: {}", publishRequest);
 
         if (publishRequest == null) {
@@ -198,40 +199,45 @@ public class PublisherRestService implements ConfigurableComponent {
             Object metricValue = metric.getValue();
 
             if (metric.getValue() instanceof Number) {
-                if ("int".equals(metricType)) {
+                if ("int".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, ((Double) metricValue).intValue());
-                } else if ("long".equals(metricType)) {
+                } else if ("long".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, ((Double) metricValue).longValue());
-                } else if ("double".equals(metricType)) {
+                } else if ("double".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, (Double) metricValue);
-                } else if ("float".equals(metricType)) {
+                } else if ("float".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, ((Double) metricValue).floatValue());
-                } else if ("string".equals(metricType)) {
+                } else if ("string".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, String.valueOf(metricValue));
+                } else {
+                    throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
+                            .entity(INVALID_METRIC_TYPE_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
                 }
             } else if (metric.getValue() instanceof String) {
                 String metricValueString = String.valueOf(metric.getValue());
 
-                if ("base64Binary".equals(metricType)) {
+                if ("base64Binary".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, metricValueString.getBytes());
-                } else if ("string".equals(metricType)) {
+                } else if ("string".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, metricValueString);
-                } else if ("int".equals(metricType)) {
+                } else if ("int".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, Integer.parseInt(metricValueString));
-                } else if ("long".equals(metricType)) {
+                } else if ("long".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, Long.parseLong(metricValueString));
-                } else if ("double".equals(metricType)) {
+                } else if ("double".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, Double.parseDouble(metricValueString));
-                } else if ("float".equals(metricType)) {
+                } else if ("float".equalsIgnoreCase(metricType)) {
                     payload.addMetric(metricName, Float.parseFloat(metricValueString));
+                } else {
+                    throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
+                            .entity(INVALID_METRIC_TYPE_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
                 }
             } else if (metric.getValue() instanceof Boolean) {
                 payload.addMetric(metricName, metricValue);
+            } else {
+                throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
+                        .entity(INVALID_METRIC_TYPE_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
             }
-        }
-
-        if (payload.metrics().isEmpty()) {
-            logger.warn("Payload is empty.");
         }
 
         // Publish the message

@@ -1,7 +1,7 @@
 # PublisherRestService
 
 Cloud publishing service exposing a single method for publishing an arbitrary payload to a configured cloud service through REST API. 
-**Context-path: /publish**
+**Context-path: /cloud-publisher**
 ___
 ## Method /publish
 
@@ -40,6 +40,7 @@ Error due to badly formed request. Additional description is shown.
 
 #### Additional notes
 - When value in request exceed max value of data type defined in type attribute, it is set to max possible value for that data type
+- "type" validation is case-insensitive (so "INT" will work as well as "int")
 
 ___
 

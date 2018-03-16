@@ -27,6 +27,10 @@ public class PublishRequest {
         return this.metrics;
     }
 
+    public void setMetrics(List<Metric> metricsList) {
+        this.metrics = metricsList;
+    }
+
     public void validate() {
         // Check if request is empty or equals null
         if (this.metrics == null || this.metrics.isEmpty()) {
