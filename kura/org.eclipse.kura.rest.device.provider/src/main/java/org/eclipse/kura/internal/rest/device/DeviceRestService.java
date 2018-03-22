@@ -31,6 +31,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.eclipse.kura.KuraException;
 import org.eclipse.kura.asset.Asset;
@@ -88,12 +89,8 @@ public class DeviceRestService {
 
         String status = null;
         JsonObject statusObject = new JsonObject();
-        final Asset asset = getAsset(deviceId);
-        // if (asset != null) {
+        checkIfDeviceExists(deviceId);
         status = "CONNECTED";
-        // } else {
-        // return Response.noContent().build();
-        // }
         statusObject.addProperty("status", status);
 
         return Response.ok(statusObject, MediaType.APPLICATION_JSON).build();
@@ -104,10 +101,7 @@ public class DeviceRestService {
     @Path("{deviceId}/connection")
     @Produces(MediaType.APPLICATION_JSON)
     public Response connectDevice(@PathParam("deviceId") String deviceId) {
-        final Asset asset = getAsset(deviceId);
-        // if (asset == null) {
-        // return Response.status(204).entity("No such device!").build();
-        // }
+        checkIfDeviceExists(deviceId);
         return Response.ok("Device connected.").build();
     }
 
@@ -116,8 +110,7 @@ public class DeviceRestService {
     @Path("{deviceId}/connection")
     @Produces(MediaType.APPLICATION_JSON)
     public Response disconnectDevice(@PathParam("deviceId") String deviceId) {
-        final Asset asset = getAsset(deviceId);
-
+        checkIfDeviceExists(deviceId);
         return Response.ok("Device disconnected").build();
     }
 
@@ -155,15 +148,16 @@ public class DeviceRestService {
     @GET
     @RolesAllowed("assets")
     @Path("/{deviceId}/{componentId}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces({ MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN })
     public Response readDataFromChannel(@PathParam("deviceId") String deviceId,
             @PathParam("componentId") String componentId) throws KuraException {
         final Asset asset = getAsset(deviceId);
         Device device = null;
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
-        logger.trace("CHANNELS LIST : " + channelsList);
+        logger.trace("CHANNELS LIST : " + channelsList.isEmpty());
         if (channelsList.isEmpty()) {
-            return Response.noContent().entity(channelsList).build();
+            logger.trace("CHANNELS LIST : + " + channelsList);
+            return Response.status(404).type(MediaType.TEXT_PLAIN).entity("ASAAA").build();
         }
         if (!channelsList.containsKey(componentId)) {
             return Response.status(404).entity("Component not found.").build();
@@ -177,7 +171,7 @@ public class DeviceRestService {
                 return Response.ok(getChannelSerializer().toJsonTree(device), MediaType.APPLICATION_JSON).build();
             }
         }
-        return Response.noContent().build();
+        return Response.noContent().entity("OP OP OP OP OP NE MOZE").build();
     }
 
     @POST
@@ -190,9 +184,13 @@ public class DeviceRestService {
         validate(writeRequest, BAD_WRITE_REQUEST_ERROR_MESSAGE);
         final List<ChannelRecord> records = writeRequest.getRequests().stream()
                 .map(request -> request.toChannelRecord()).collect(Collectors.toList());
+        if (!asset.getAssetConfiguration().getAssetChannels().containsKey(componentId)) {
+            return Response.status(404).entity("Component not found.").build();
+        }
         if (!records.get(0).getChannelName().equals(componentId)) {
             return Response.status(404).entity("Component not found.").build();
         }
+
         if (records.size() > 1) {
             return Response.status(204).entity("Write sent, no results returned.").build();
         }
@@ -210,7 +208,6 @@ public class DeviceRestService {
         Device device = null;
 
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
-        logger.trace("CHANNELS LIST : " + channelsList);
         if (channelsList.isEmpty()) {
             return Response.noContent().entity("[]").build();
         }
@@ -256,7 +253,6 @@ public class DeviceRestService {
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
         List<String> channelNames = new ArrayList<String>(channelsList.keySet());
         List<ChannelRecord> records = asset.read(channelsList.keySet());
-        logger.trace("CHANNELS LIST : " + channelsList);
         if (channelsList.isEmpty()) {
             return Response.noContent().entity(channelsList.toString()).build();
         }
@@ -287,9 +283,11 @@ public class DeviceRestService {
             return noChannelFound;
 
         } else if ("write".equals(command)) {
-            logger.trace("REQUEST : " + request);
+            if (request.isEmpty()) {
+                throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
+                        .entity(BAD_WRITE_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+            }
             WriteRequestList writeRequestlist = gson.fromJson(request, WriteRequestList.class);
-            logger.info("WR FROM EXECUTE COMMAND : " + writeRequestlist.toString());
             validate(writeRequestlist, BAD_WRITE_REQUEST_ERROR_MESSAGE);
             final List<ChannelRecord> records = writeRequestlist.getRequests().stream()
                     .map(req -> req.toChannelRecord()).collect(Collectors.toList());
@@ -307,17 +305,10 @@ public class DeviceRestService {
         return Response.status(204).entity("Action sent, no response received.").build();
     }
 
-    // private List<ChannelRecord> getDataFromSpecificChannel(Asset asset, String deviceId, String componentId)
-    // throws KuraException {
-    // Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
-    // List<ChannelRecord> records = asset.read(channelsList.keySet());
-    // for (int i = 0; i < records.size(); i++) {
-    // if (!records.get(i).getChannelName().equals(componentId)) {
-    // records.remove(records.get(i));
-    // }
-    // }
-    // return records;
-    // }
+    // Method for check if specific device exists
+    private void checkIfDeviceExists(String deviceId) {
+        getAsset(deviceId);
+    }
 
     private Asset getAsset(String deviceId) {
         final Asset asset = assetService.getAsset(deviceId);

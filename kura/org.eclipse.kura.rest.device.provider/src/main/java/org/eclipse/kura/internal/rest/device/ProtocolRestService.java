@@ -49,10 +49,9 @@ import com.google.gson.Gson;
 @Path("/protocol")
 public class ProtocolRestService {
 
-    private static final String BAD_WRITE_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: {\"channels\": [{\"name\": \"channel-1\", \"value\": \"INTEGER\", \"data\": 10 }]}";
+    private static final String BAD_WRITE_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: {\"channels\": [{\"name\": \"channel-1\", \"type\": \"INTEGER\", \"value\": 10 }]}";
     private static final Logger logger = LoggerFactory.getLogger(ProtocolRestService.class);
 
-    // private Gson channelSerializer;
     private DriverService driverService;
     private AssetService assetService;
     private Response noContentResponse = Response.noContent().build();
@@ -76,7 +75,7 @@ public class ProtocolRestService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response connectToDevice(@PathParam("protocolId") String protocolId,
             @PathParam("deviceId") String deviceId) {
-        // Check that device and protocol actually exists
+        // Check if device and protocol actually exists
         checkIfDeviceAndProtocolExists(protocolId, deviceId);
 
         return Response.ok().entity("Connection initialized.").build();
@@ -88,7 +87,7 @@ public class ProtocolRestService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response disconnectFromDevice(@PathParam("protocolId") String protocolId,
             @PathParam("deviceId") String deviceId) {
-        // Check that device and protocol actually exists
+        // Check if device and protocol actually exists
         checkIfDeviceAndProtocolExists(protocolId, deviceId);
 
         return Response.ok().entity("Disconnection completed.").build();
@@ -104,6 +103,7 @@ public class ProtocolRestService {
         final Driver driver = getDriver(protocolId);
         final Asset asset = getAsset(deviceId);
         boolean isConnected = isDeviceConnectedViaProtocol(asset, protocolId);
+        List<String> channelNamesFromRequest = new ArrayList<>();
         if (!isConnected) {
             return Response.status(400).entity("This combination of device and protocol is not available.").build();
         }
@@ -114,7 +114,6 @@ public class ProtocolRestService {
         final List<ChannelRecord> records = writeRequestList.getRequests().stream().map(req -> req.toChannelRecord())
                 .collect(Collectors.toList());
         logger.trace("RECORDS FROM PROTOCOLS : " + records.toString());
-        List<String> channelNamesFromRequest = new ArrayList<>();
         for (ChannelRecord record : records) {
             channelNamesFromRequest.add(record.getChannelName());
         }
@@ -179,7 +178,6 @@ public class ProtocolRestService {
         if (asset.getAssetConfiguration().getDriverPid().equals(protocolId)) {
             isConnected = true;
         }
-
         return isConnected;
     }
 
