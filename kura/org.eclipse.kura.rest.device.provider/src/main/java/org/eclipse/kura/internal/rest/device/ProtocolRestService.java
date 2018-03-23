@@ -41,16 +41,13 @@ import org.eclipse.kura.driver.DriverService;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 
 @Path("/protocol")
 public class ProtocolRestService {
 
-    private static final String BAD_WRITE_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: {\"channels\": [{\"name\": \"channel-1\", \"type\": \"INTEGER\", \"value\": 10 }]}";
-    private static final Logger logger = LoggerFactory.getLogger(ProtocolRestService.class);
+    private static final String BAD_WRITE_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: {\"channels\": [{\"name\": \"channel-1\", \"type\": \"BOOLEAN\", \"value\": true }]}";
 
     private DriverService driverService;
     private AssetService assetService;
@@ -113,7 +110,6 @@ public class ProtocolRestService {
 
         final List<ChannelRecord> records = writeRequestList.getRequests().stream().map(req -> req.toChannelRecord())
                 .collect(Collectors.toList());
-        logger.trace("RECORDS FROM PROTOCOLS : " + records.toString());
         for (ChannelRecord record : records) {
             channelNamesFromRequest.add(record.getChannelName());
         }
@@ -132,14 +128,12 @@ public class ProtocolRestService {
     public Response readViaProtocol(@PathParam("protocolId") String protocolId, @PathParam("deviceId") String deviceId)
             throws KuraException {
         final Asset asset = getAsset(deviceId);
-        final Driver driver = getDriver(protocolId);
         String data = null;
         Gson gson = new Gson();
 
         if (!isDeviceConnectedViaProtocol(asset, protocolId)) {
             return Response.status(400).entity("This combination of device and protocol is not available.").build();
         }
-        logger.trace("DRIVER CHANNEL DESCRIPTOR : " + driver.getChannelDescriptor());
         List<Device> deviceList = new ArrayList<Device>();
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
         List<String> channelNames = new ArrayList<String>(channelsList.keySet());

@@ -10,28 +10,13 @@
 
 package org.eclipse.kura.internal.rest.device;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class Device {
 
-    @SerializedName("deviceID")
-    @Expose
     private String deviceID;
-    @SerializedName("componentID")
-    @Expose
     private String componentID;
-    @SerializedName("value")
-    @Expose
     private String value;
-    @SerializedName("unit")
-    @Expose
     private String unit;
-    @SerializedName("lastUpdate")
-    @Expose
     private String lastUpdate;
-    @SerializedName("format")
-    @Expose
     private String format;
 
     public Device(String deviceID, String componentID, String value, String unit, String format, String lastUpdate) {

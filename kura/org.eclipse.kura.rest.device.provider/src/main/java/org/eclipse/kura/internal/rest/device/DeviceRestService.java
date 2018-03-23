@@ -42,8 +42,6 @@ import org.eclipse.kura.type.TypedValue;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,10 +52,9 @@ import com.google.gson.JsonSerializer;
 @Path("/device")
 public class DeviceRestService {
 
-    private static final String BAD_WRITE_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: {\"channels\": [{\"name\": \"channel-1\", \"type\": \"INTEGER\", \"value\": 10 }]}";
+    private static final String BAD_WRITE_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: {\"channels\": [{\"name\": \"channel-1\", \"type\": \"BOOLEAN\", \"value\": true }]}";
     private static final String BAD_READ_REQUEST_ERROR_MESSAGE = "Bad request, expected request format: {\"channels\": [ \"channel-1\", \"channel-2\"]}";
     private static final Encoder BASE64_ENCODER = Base64.getEncoder();
-    private static final Logger logger = LoggerFactory.getLogger(DeviceRestService.class);
     private AssetService assetService;
     private Gson channelSerializer;
 
@@ -154,10 +151,8 @@ public class DeviceRestService {
         final Asset asset = getAsset(deviceId);
         Device device = null;
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
-        logger.trace("CHANNELS LIST : " + channelsList.isEmpty());
         if (channelsList.isEmpty()) {
-            logger.trace("CHANNELS LIST : + " + channelsList);
-            return Response.status(404).type(MediaType.TEXT_PLAIN).entity("ASAAA").build();
+            return Response.status(404).type(MediaType.TEXT_PLAIN).entity("Channel not found.").build();
         }
         if (!channelsList.containsKey(componentId)) {
             return Response.status(404).entity("Component not found.").build();
@@ -171,7 +166,7 @@ public class DeviceRestService {
                 return Response.ok(getChannelSerializer().toJsonTree(device), MediaType.APPLICATION_JSON).build();
             }
         }
-        return Response.noContent().entity("OP OP OP OP OP NE MOZE").build();
+        return Response.noContent().build();
     }
 
     @POST
@@ -181,14 +176,15 @@ public class DeviceRestService {
     public Response writeDataToChannel(@PathParam("deviceId") String deviceId,
             @PathParam("componentId") String componentId, WriteRequestList writeRequest) throws KuraException {
         final Asset asset = getAsset(deviceId);
+        Response notFound = Response.status(404).entity("Component not found.").build();
         validate(writeRequest, BAD_WRITE_REQUEST_ERROR_MESSAGE);
         final List<ChannelRecord> records = writeRequest.getRequests().stream()
                 .map(request -> request.toChannelRecord()).collect(Collectors.toList());
         if (!asset.getAssetConfiguration().getAssetChannels().containsKey(componentId)) {
-            return Response.status(404).entity("Component not found.").build();
+            return notFound;
         }
         if (!records.get(0).getChannelName().equals(componentId)) {
-            return Response.status(404).entity("Component not found.").build();
+            return notFound;
         }
 
         if (records.size() > 1) {
@@ -254,7 +250,7 @@ public class DeviceRestService {
         List<String> channelNames = new ArrayList<String>(channelsList.keySet());
         List<ChannelRecord> records = asset.read(channelsList.keySet());
         if (channelsList.isEmpty()) {
-            return Response.noContent().entity(channelsList.toString()).build();
+            return Response.status(404).entity("No channel found.").build();
         }
         for (int i = 0; i < channelsList.size(); i++) {
             String value = records.get(i).getValue().getValue().toString();
