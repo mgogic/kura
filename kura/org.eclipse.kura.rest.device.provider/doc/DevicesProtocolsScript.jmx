@@ -169,51 +169,6 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Endpoints" enabled="false">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="device_status" elementType="Argument">
-                <stringProp name="Argument.name">device_status</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/status</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device" elementType="Argument">
-                <stringProp name="Argument.name">device</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="channel" elementType="Argument">
-                <stringProp name="Argument.name">channel</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/${component_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="channel_lastupdate" elementType="Argument">
-                <stringProp name="Argument.name">channel_lastupdate</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/${component_id}/lastUpdate</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device_lastupdate" elementType="Argument">
-                <stringProp name="Argument.name">device_lastupdate</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/lastUpdate</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device_connection" elementType="Argument">
-                <stringProp name="Argument.name">device_connection</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/connection</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device_execute" elementType="Argument">
-                <stringProp name="Argument.name">device_execute</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/execute</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="channel_subscribe" elementType="Argument">
-                <stringProp name="Argument.name">channel_subscribe</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/${component_id}/subscribe</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </Arguments>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
@@ -1497,7 +1452,7 @@ else
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_25_Post_ChannelSubscribe" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_25_Post_ChannelSubscribe_NOT IMPLEMENTED" enabled="false">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1555,7 +1510,7 @@ else
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_26_Delete_ChannelSubscribe" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_26_Delete_ChannelSubscribe_NOT IMPLEMENTED" enabled="false">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2435,7 +2390,7 @@ else
           <hashTree/>
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="2_Device_Endpoints_NegativeTests" enabled="true">
-          <stringProp name="TestPlan.comments"> Controller with positive tests for all implemented Device services.</stringProp>
+          <stringProp name="TestPlan.comments"> Controller with negative test cases for all implemented Device services. Verifies BAD REQUEST, NOT FOUND, NO CONTENT</stringProp>
         </GenericController>
         <hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="2_01_AuthorizationScript" enabled="true">
@@ -2449,51 +2404,6 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="BeanShellSampler.parameters"></stringProp>
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
-          <hashTree/>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Endpoints" enabled="false">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="device_status" elementType="Argument">
-                <stringProp name="Argument.name">device_status</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/status</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device" elementType="Argument">
-                <stringProp name="Argument.name">device</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="channel" elementType="Argument">
-                <stringProp name="Argument.name">channel</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/${component_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="channel_lastupdate" elementType="Argument">
-                <stringProp name="Argument.name">channel_lastupdate</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/${component_id}/lastUpdate</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device_lastupdate" elementType="Argument">
-                <stringProp name="Argument.name">device_lastupdate</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/lastUpdate</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device_connection" elementType="Argument">
-                <stringProp name="Argument.name">device_connection</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/connection</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device_execute" elementType="Argument">
-                <stringProp name="Argument.name">device_execute</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/execute</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="channel_subscribe" elementType="Argument">
-                <stringProp name="Argument.name">channel_subscribe</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/${component_id}/subscribe</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </Arguments>
           <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
@@ -3276,7 +3186,7 @@ vars.put(&quot;channel_subscribe&quot;,&quot;services/device/${device_id}/${comp
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_23_Post_ChannelSubscribe_NOT FOUND" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_23_Post_ChannelSubscribe_NOT FOUND_NOT IMPLEMENTED" enabled="false">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -3334,7 +3244,7 @@ vars.put(&quot;channel_subscribe&quot;,&quot;services/device/${device_id}/${comp
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_24_Delete_ChannelSubscribe_NOT FOUND" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_24_Delete_ChannelSubscribe_NOT FOUND_NOT IMPLEMENTED" enabled="false">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -3559,6 +3469,7 @@ vars.put(&quot;value&quot;,&quot;true&quot;);</stringProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to POST channel without payload, verifies is status code 400 Bad request and response date contains expected payload format.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -4458,7 +4369,9 @@ vars.put(&quot;channel&quot;,&quot;services/device/${device_id}/${component_id_w
           </ResultCollector>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3_Device_Endpoints_Authorization_NegativeTests" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3_Device_Endpoints_Authorization_NegativeTests" enabled="true">
+          <stringProp name="TestPlan.comments">Controller with negative test cases for all implemented Device services. Verifies Authorization level, without autorization and status code 401, with wrong autorization token and status code 403</stringProp>
+        </GenericController>
         <hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="3_01_AuthorizationScript" enabled="true">
             <stringProp name="TestPlan.comments"> BeanShell script encodes Kura username and password, saves to the variable &quot;base64HeaderValue&quot; and uses inHeader manager Autorization parameter.</stringProp>
@@ -4486,51 +4399,6 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="TestPlan.comments"> Represents header of below requests, and gets autorization token from Autorization script above.</stringProp>
           </HeaderManager>
           <hashTree/>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Endpoints" enabled="false">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="device_status" elementType="Argument">
-                <stringProp name="Argument.name">device_status</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/status</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device" elementType="Argument">
-                <stringProp name="Argument.name">device</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="channel" elementType="Argument">
-                <stringProp name="Argument.name">channel</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/${component_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="channel_lastupdate" elementType="Argument">
-                <stringProp name="Argument.name">channel_lastupdate</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/${component_id}/lastUpdate</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device_lastupdate" elementType="Argument">
-                <stringProp name="Argument.name">device_lastupdate</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/lastUpdate</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device_connection" elementType="Argument">
-                <stringProp name="Argument.name">device_connection</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/connection</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="device_execute" elementType="Argument">
-                <stringProp name="Argument.name">device_execute</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/execute</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="channel_subscribe" elementType="Argument">
-                <stringProp name="Argument.name">channel_subscribe</stringProp>
-                <stringProp name="Argument.value">services/device/${device_id}/${component_id}/subscribe</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </Arguments>
-          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="3_02_Get_DeviceStatus_NO AUTH" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
@@ -4548,6 +4416,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Get_DeviceStatus without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -4616,6 +4485,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Get_DeviceStatus endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -4685,6 +4555,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Get_Device without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -4753,6 +4624,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Get_Device endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -4821,6 +4693,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Post_ConnectDevice without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -4889,6 +4762,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Post_ConnectionDevice endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -4928,7 +4802,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -4957,6 +4831,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Delete_DisconnectDevice without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5014,6 +4889,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Delete_ConnectionDevice endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5042,7 +4918,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -5055,6 +4931,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <hashTree/>
           </hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="3_10_SetDeviceExecuteParams" enabled="true">
+            <stringProp name="TestPlan.comments">Set parameters for Post of Device Execute write method and use them in the following requests</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;execCommand&quot;,&quot;write&quot;);
 vars.put(&quot;type&quot;,&quot;INTEGER&quot;);
 vars.put(&quot;value&quot;,&quot;10&quot;);
@@ -5088,6 +4965,7 @@ vars.put(&quot;value&quot;,&quot;10&quot;);
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Post_DeviceExecuteWrite method without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5163,6 +5041,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Post_DeviceExecuteWrite method endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5202,7 +5081,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -5215,6 +5094,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <hashTree/>
           </hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="3_13_SetExecCommandToRead" enabled="true">
+            <stringProp name="TestPlan.comments">Set parameter for Post of Device Execute READ method and use it in the following requests</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;execCommand&quot;,&quot;read&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
@@ -5245,6 +5125,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Post_DeviceExecuteRead method without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5320,6 +5201,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Post_DeviceExecuteRead method endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5359,7 +5241,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -5372,6 +5254,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <hashTree/>
           </hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="3_16_SetChannelSubscribeParams" enabled="true">
+            <stringProp name="TestPlan.comments">Set non-existing component id parameters for Channel_Subscibe endpoint and use it in the following requests</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;execCommand&quot;,&quot;read&quot;);
 vars.put(&quot;channel_subscribe&quot;,&quot;services/device/${device_id}/${component_id_wrong}/subscribe&quot;);
 
@@ -5398,6 +5281,7 @@ vars.put(&quot;channel_subscribe&quot;,&quot;services/device/${device_id}/${comp
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Post_ChannelSubscribe request without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5466,6 +5350,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Post_ChannelSubscribe endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5505,7 +5390,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -5534,6 +5419,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Delete_ChannelSubscribe  without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5591,6 +5477,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Delete_ChannelSubscribe endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5619,7 +5506,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -5648,6 +5535,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Get_Channel descriptions  without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5716,6 +5604,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Get_Channel data endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5755,7 +5644,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -5768,8 +5657,9 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <hashTree/>
           </hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="3_23_Post_SetPayloadParams" enabled="true">
-            <stringProp name="BeanShellSampler.query">vars.put(&quot;type&quot;,&quot;INTEGER&quot;);
-vars.put(&quot;value&quot;,&quot;10&quot;);</stringProp>
+            <stringProp name="TestPlan.comments">Set parameters for Post_Channel endpoint and use it in the following requests</stringProp>
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;type&quot;,&quot;BOOLEAN&quot;);
+vars.put(&quot;value&quot;,&quot;true&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
@@ -5799,6 +5689,7 @@ vars.put(&quot;value&quot;,&quot;10&quot;);</stringProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to Post_Channel parameters  without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5874,6 +5765,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Post_Channel parameters endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -5913,7 +5805,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -5942,6 +5834,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Get_ChannelLastUpdate endpoint  without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6010,6 +5903,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Get_ChannelLastUpdate endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6049,7 +5943,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -6078,6 +5972,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Get_DeviceLastUpdate endpoint  without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6146,6 +6041,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call Get_DeviceLastUpdate endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6185,7 +6081,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
             </DurationAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderRemoveAuthorization" enabled="true">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="HeaderWrongAuthorization" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -6235,7 +6131,9 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
           </ResultCollector>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4_Protocol_Endpoint_PositiveTests" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4_Protocol_Endpoint_PositiveTests" enabled="true">
+          <stringProp name="TestPlan.comments"> Controller with positive test cases for all implemented Protocol services.</stringProp>
+        </GenericController>
         <hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="4_01_AuthorizationScript" enabled="true">
             <stringProp name="TestPlan.comments"> BeanShell script encodes Kura username and password, saves to the variable &quot;base64HeaderValue&quot; and uses inHeader manager Autorization parameter.</stringProp>
@@ -6263,21 +6161,6 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="TestPlan.comments"> Represents header of below requests, and gets autorization token from Autorization script above.</stringProp>
           </HeaderManager>
           <hashTree/>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Endpoints" enabled="false">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="protocol_connection" elementType="Argument">
-                <stringProp name="Argument.name">protocol_connection</stringProp>
-                <stringProp name="Argument.value">services/protocol/${protocol_id}/connection/${device_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="protocol_device" elementType="Argument">
-                <stringProp name="Argument.name">protocol_device</stringProp>
-                <stringProp name="Argument.value">services/protocol/${protocol_id}/${device_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </Arguments>
-          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="4_02_Post_Protocol_Connection" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -6302,6 +6185,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Post protocol connection and verifies is status code 200 and message: connection initialized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6359,6 +6243,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Delete protocol connection and verifies is status code 200 and message: disconnection completed.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6438,6 +6323,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
           </HTTPSamplerProxy>
           <hashTree/>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="4_04_UpdateProtocolDevice" enabled="true">
+            <stringProp name="TestPlan.comments">Set parameters type to BOOLEAN and value to True for payload of Write and Read calls via protocol, which will be used in the following POST AND GET requests.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;type&quot;, &quot;BOOLEAN&quot;);
 vars.put(&quot;value&quot;, &quot;true&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
@@ -6469,6 +6355,7 @@ vars.put(&quot;value&quot;, &quot;true&quot;);</stringProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Call a write via protocol with existing protocol id, device id, component id, and verifies is status code 200 and message: Write succeeded.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6526,6 +6413,7 @@ vars.put(&quot;value&quot;, &quot;true&quot;);</stringProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Call a read via protocol with existing protocol id, device id, and verifies is status code 200 and json response has appropriate parameter values such as device id, component id, value</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6570,6 +6458,7 @@ vars.put(&quot;value&quot;, &quot;true&quot;);</stringProp>
             <hashTree/>
           </hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="4_07_UpdateProtocolDevice" enabled="true">
+            <stringProp name="TestPlan.comments">Set parameters type to BOOLEAN and value to True and False for payload of Write and Read calls via protocol, which will be used in the following POST AND GET requests.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;type&quot;, &quot;BOOLEAN&quot;);
 vars.put(&quot;value&quot;, &quot;true&quot;);
 vars.put(&quot;value1&quot;, &quot;false&quot;);</stringProp>
@@ -6602,6 +6491,7 @@ vars.put(&quot;value1&quot;, &quot;false&quot;);</stringProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Call a write via protocol with existing protocol id, device id and two component ids in payload, and verifies is status code 200 and message: Write succeeded.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6666,6 +6556,7 @@ vars.put(&quot;value1&quot;, &quot;false&quot;);</stringProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Call a read via protocol with existing protocol id, device id, and verifies is status code 200 and json response has appropriate parameter values such as device id, component id, value</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6748,7 +6639,9 @@ vars.put(&quot;value1&quot;, &quot;false&quot;);</stringProp>
           </ResultCollector>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="5_Protocol_Endpoint_NegativeTests" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="5_Protocol_Endpoint_NegativeTests" enabled="true">
+          <stringProp name="TestPlan.comments"> Controller with negative test cases for all implemented Protocol services. Verifies BAD REQUEST, NOT FOUND, NO CONTENT, also verifies Autorization level: without autorization 401, with wrong autorization token 403</stringProp>
+        </GenericController>
         <hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_01_AuthorizationScript" enabled="true">
             <stringProp name="TestPlan.comments"> BeanShell script encodes Kura username and password, saves to the variable &quot;base64HeaderValue&quot; and uses inHeader manager Autorization parameter.</stringProp>
@@ -6776,22 +6669,8 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="TestPlan.comments"> Represents header of below requests, and gets autorization token from Autorization script above.</stringProp>
           </HeaderManager>
           <hashTree/>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Endpoints" enabled="false">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="protocol_connection" elementType="Argument">
-                <stringProp name="Argument.name">protocol_connection</stringProp>
-                <stringProp name="Argument.value">services/protocol/${protocol_id}/connection/${device_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="protocol_device" elementType="Argument">
-                <stringProp name="Argument.name">protocol_device</stringProp>
-                <stringProp name="Argument.value">services/protocol/${protocol_id}/${device_id}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </Arguments>
-          <hashTree/>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_02_UpdateDevicePath" enabled="true">
+            <stringProp name="TestPlan.comments">Set protocol_connection endpoint and pass non-existing protocol id.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;protocol_connection&quot;, &quot;services/protocol/${protocol_id_wrong}/connection/${device_id}&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
@@ -6822,6 +6701,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Post request of protocol_connection endpoint with non-existing protocolId, verifies status code 404 Not Found and response for Protocol not found...</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6879,6 +6759,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Delete request of protocol_connection endpoint with non-existing protocolId, verifies status code 404 Not Found and response for Protocol not found...</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6920,6 +6801,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <hashTree/>
           </hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_05_UpdateDevicePath" enabled="true">
+            <stringProp name="TestPlan.comments">Set protocol_connection endpoint and pass non-existing device id.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;protocol_connection&quot;, &quot;services/protocol/${protocol_id}/connection/${device_id_wrong}&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
@@ -6950,6 +6832,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Post request of protocol_connection endpoint with non-existing device id, verifies status code 404 Not Found and response for Device not found...</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7007,6 +6890,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Delete request of protocol_connection endpoint with non-existing device id, verifies status code 404 Not Found and response for Device not found...</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7048,6 +6932,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <hashTree/>
           </hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_08_UpdateDevicePath" enabled="true">
+            <stringProp name="TestPlan.comments">Set protocol_device endpoint and pass non-existing protocol id and existing device id</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;protocol_device&quot;, &quot;services/protocol/${protocol_id_wrong}/${device_id}&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
@@ -7078,6 +6963,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to write via protocol with non-existing protocolId, verifies status code 404 Not Found and message: Protocol not found...</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7135,6 +7021,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to read via protocol with non-existing protocolId, verifies status code 404 Not Found and message: Protocol not found...</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7176,6 +7063,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <hashTree/>
           </hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_11_UpdateDevicePath" enabled="true">
+            <stringProp name="TestPlan.comments">Set protocol_device endpoint and pass non-existing device id.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;protocol_device&quot;, &quot;services/protocol/${protocol_id}/${device_id_wrong}&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
@@ -7206,6 +7094,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to write via protocol with non-existing device id, verifies status code 404 Not Found and message: Device not found...</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7263,6 +7152,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to read via protocol with non-existing device id, verifies status code 404 Not Found and message: Device not found...</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7304,6 +7194,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <hashTree/>
           </hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_14_UpdateDevicePath" enabled="true">
+            <stringProp name="TestPlan.comments">Set protocol_device endpoint with existing protocol id and device id</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;protocol_device&quot;, &quot;services/protocol/${protocol_id}/${device_id}&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
@@ -7316,7 +7207,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id_wrong}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot;}]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id_wrong}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value}}]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -7334,6 +7225,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to write via protocol with non-existing component id in the payload, verifies is status code 204 No Content</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7387,6 +7279,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to write via protocol with two non-existing component ids in the payload, verifies is status code 204 No Content</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7440,6 +7333,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to write via protocol without payload content, verifies is status code 400 Bad request and message: Bad request, expected request format:...</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7483,113 +7377,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_18_Post_Protocol_Device_ProtocoId_WrongPayload" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id_wrong}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value}}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
-            <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol"></stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/${protocol_device}</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
-            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="49590">204</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-              <boolProp name="Assertion.assume_success">true</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="1344405786">No Content</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
-              <boolProp name="Assertion.assume_success">true</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
-              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
-            </DurationAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_19_Post_Protocol_Device_ProtocoId_WrongPayloadTwoChannels" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id_wrong}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value}},{&quot;name&quot;: &quot;${component_id_wrong1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value}}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
-            <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol"></stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/${protocol_device}</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
-            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="49590">204</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-              <boolProp name="Assertion.assume_success">true</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="1344405786">No Content</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
-              <boolProp name="Assertion.assume_success">true</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
-              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
-            </DurationAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_20_Post_Protocol_Device_No Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_18_Post_Protocol_Device_No Auth" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -7613,6 +7401,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to write via Protocol without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7653,7 +7442,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_21_Get_Protocol_Device_No Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_19_Get_Protocol_Device_No Auth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7670,6 +7459,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to read via Protocol without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7710,7 +7500,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_22_Post_Protocol_Device_Wrong Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_20_Post_Protocol_Device_Wrong Auth" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -7734,6 +7524,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call write via protocol_device endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7742,17 +7533,6 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-              <boolProp name="Assertion.assume_success">true</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-787432487">Forbidden</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
               <boolProp name="Assertion.assume_success">true</boolProp>
               <intProp name="Assertion.test_type">8</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
@@ -7785,7 +7565,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_23_Get_Protocol_Device_Wrong Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_21_Get_Protocol_Device_Wrong Auth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7802,6 +7582,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call read via protocol_device endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7810,17 +7591,6 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-              <boolProp name="Assertion.assume_success">true</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-787432487">Forbidden</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
               <boolProp name="Assertion.assume_success">true</boolProp>
               <intProp name="Assertion.test_type">8</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
@@ -7864,14 +7634,15 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_24_UpdateDevicePath" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_22_UpdateDevicePath" enabled="true">
+            <stringProp name="TestPlan.comments">Set protocol_connection endpoint with existing protocol id and device id.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;protocol_connection&quot;, &quot;services/protocol/${protocol_id}/connection/${device_id}&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_25_Post_ProtocolId_Unautorized_No Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_23_Post_ProtocolId_Unautorized_No Auth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7889,6 +7660,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call POST protocol_connection without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7929,7 +7701,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_26_Delete_ProtocolId_Unautorized_No Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_24_Delete_ProtocolId_Unautorized_No Auth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7946,6 +7718,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call DELETE protocol_connection without Autorization parameter in the Header. Verifies status code 401 Unautorized.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -7986,7 +7759,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_27_Post_ProtocolId_Unautorized_WrongAuth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_25_Post_ProtocolId_Unautorized_WrongAuth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -8004,6 +7777,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call POST protocol_connection endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -8012,17 +7786,6 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-              <boolProp name="Assertion.assume_success">true</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-787432487">Forbidden</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
               <boolProp name="Assertion.assume_success">true</boolProp>
               <intProp name="Assertion.test_type">8</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
@@ -8055,7 +7818,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_28_Delete_ProtocolId_Unautorized_WrongAuth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_26_Delete_ProtocolId_Unautorized_WrongAuth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -8072,6 +7835,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to call DELETE protocol_connection endpoint with wrong Autorization parameter in the Header. Verifies status code 403 Forbidden.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -8090,9 +7854,9 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
                 <stringProp name="-787432487">Forbidden</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">true</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
             <hashTree/>
@@ -8188,7 +7952,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="99_View Results in Table" enabled="true">
-          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
             <value class="SampleSaveConfiguration">
