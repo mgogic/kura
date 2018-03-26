@@ -62,6 +62,7 @@ public class ProtocolRestService {
     }
 
     protected Collection<ServiceReference<Driver>> getDeviceServiceReferences() throws InvalidSyntaxException {
+
         return FrameworkUtil.getBundle(ProtocolRestService.class).getBundleContext().getServiceReferences(Driver.class,
                 null);
     }
@@ -72,6 +73,7 @@ public class ProtocolRestService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response connectToDevice(@PathParam("protocolId") String protocolId,
             @PathParam("deviceId") String deviceId) {
+
         // Check if device and protocol actually exists
         checkIfDeviceAndProtocolExists(protocolId, deviceId);
 
@@ -84,6 +86,7 @@ public class ProtocolRestService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response disconnectFromDevice(@PathParam("protocolId") String protocolId,
             @PathParam("deviceId") String deviceId) {
+
         // Check if device and protocol actually exists
         checkIfDeviceAndProtocolExists(protocolId, deviceId);
 
@@ -97,10 +100,12 @@ public class ProtocolRestService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response writeViaProtocol(@PathParam("protocolId") String protocolId, @PathParam("deviceId") String deviceId,
             WriteRequestList writeRequestList) throws ConnectionException {
+
         final Driver driver = getDriver(protocolId);
         final Asset asset = getAsset(deviceId);
         boolean isConnected = isDeviceConnectedViaProtocol(asset, protocolId);
         List<String> channelNamesFromRequest = new ArrayList<>();
+
         if (!isConnected) {
             return Response.status(400).entity("This combination of device and protocol is not available.").build();
         }
@@ -113,8 +118,10 @@ public class ProtocolRestService {
         for (ChannelRecord record : records) {
             channelNamesFromRequest.add(record.getChannelName());
         }
+
         if (existingChannelNames.containsAll(channelNamesFromRequest)) {
             driver.write(records);
+
             return Response.ok("Write succeeded").build();
         }
 
@@ -127,11 +134,13 @@ public class ProtocolRestService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response readViaProtocol(@PathParam("protocolId") String protocolId, @PathParam("deviceId") String deviceId)
             throws KuraException {
+
         final Asset asset = getAsset(deviceId);
         String data = null;
         Gson gson = new Gson();
 
         if (!isDeviceConnectedViaProtocol(asset, protocolId)) {
+
             return Response.status(400).entity("This combination of device and protocol is not available.").build();
         }
         List<Device> deviceList = new ArrayList<Device>();
@@ -151,19 +160,23 @@ public class ProtocolRestService {
 
     private Driver getDriver(String protocolId) {
         final Driver driver = driverService.getDriver(protocolId);
+
         if (driver == null) {
             throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND).type(MediaType.TEXT_PLAIN)
                     .entity("Protocol not found: " + protocolId).build());
         }
+
         return driver;
     }
 
     private Asset getAsset(String deviceId) {
         final Asset asset = assetService.getAsset(deviceId);
+
         if (asset == null) {
             throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND).type(MediaType.TEXT_PLAIN)
                     .entity("Device not found: " + deviceId).build());
         }
+
         return asset;
     }
 
@@ -172,6 +185,7 @@ public class ProtocolRestService {
         if (asset.getAssetConfiguration().getDriverPid().equals(protocolId)) {
             isConnected = true;
         }
+
         return isConnected;
     }
 
