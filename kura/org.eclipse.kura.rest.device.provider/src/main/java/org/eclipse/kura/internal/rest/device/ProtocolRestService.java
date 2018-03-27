@@ -135,12 +135,11 @@ public class ProtocolRestService {
     public Response readViaProtocol(@PathParam("protocolId") String protocolId, @PathParam("deviceId") String deviceId)
             throws KuraException {
 
-        final Asset asset = getAsset(deviceId);
         String data = null;
         Gson gson = new Gson();
 
-        checkIfDeviceAndProtocolExists(deviceId, protocolId);
-
+        checkIfDeviceAndProtocolExists(protocolId, deviceId);
+        final Asset asset = getAsset(deviceId);
         if (!isDeviceConnectedViaProtocol(asset, protocolId)) {
 
             return Response.status(400).entity("This combination of device and protocol is not available.").build();

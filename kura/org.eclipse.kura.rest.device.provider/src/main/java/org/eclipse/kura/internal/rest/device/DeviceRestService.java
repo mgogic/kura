@@ -164,9 +164,8 @@ public class DeviceRestService {
         final Asset asset = getAsset(deviceId);
         Device device = null;
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
-
         if (channelsList.isEmpty()) {
-            return Response.status(404).type(MediaType.TEXT_PLAIN).entity("Channel not found.").build();
+            return Response.noContent().build();
         }
         if (!channelsList.containsKey(componentId)) {
             return Response.status(404).entity("Component not found.").build();
@@ -176,6 +175,7 @@ public class DeviceRestService {
         for (ChannelRecord channelRecord : records) {
 
             if (channelRecord.getChannelName().equals(componentId)) {
+
                 String value = channelRecord.getValue().getValue().toString();
                 device = new Device(assetService.getAssetPid(asset), channelRecord.getChannelName(), value.toString(),
                         "", "", Long.toString(channelRecord.getTimestamp()));
@@ -241,6 +241,7 @@ public class DeviceRestService {
         for (ChannelRecord channelRecord : records) {
 
             if (channelRecord.getChannelName().equals(componentId)) {
+
                 String value = channelRecord.getValue().getValue().toString();
                 device = new Device(assetService.getAssetPid(asset), channelRecord.getChannelName(), value, "", "",
                         Long.toString(channelRecord.getTimestamp()));
