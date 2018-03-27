@@ -20,7 +20,7 @@
           </elementProp>
           <elementProp name="device_id" elementType="Argument">
             <stringProp name="Argument.name">device_id</stringProp>
-            <stringProp name="Argument.value">testasset</stringProp>
+            <stringProp name="Argument.value">b924dsds4d</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="component_id" elementType="Argument">
@@ -76,6 +76,21 @@
           <elementProp name="number_of_users" elementType="Argument">
             <stringProp name="Argument.name">number_of_users</stringProp>
             <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="component_id_read" elementType="Argument">
+            <stringProp name="Argument.name">component_id_read</stringProp>
+            <stringProp name="Argument.value">ChannelRead</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="component_id_write" elementType="Argument">
+            <stringProp name="Argument.name">component_id_write</stringProp>
+            <stringProp name="Argument.value">ChannelWrite</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="device_id_channelwrite" elementType="Argument">
+            <stringProp name="Argument.name">device_id_channelwrite</stringProp>
+            <stringProp name="Argument.value">devicewithchannelwrite</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -485,7 +500,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${valueFalse}&quot; },{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${valueFalse}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse} },{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -535,7 +550,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
             <hashTree/>
@@ -600,7 +615,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -650,7 +665,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
             <hashTree/>
@@ -715,7 +730,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${valueFalse}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -765,7 +780,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
             <hashTree/>
@@ -830,7 +845,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -880,7 +895,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
             <hashTree/>
@@ -945,7 +960,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${valueFalse}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -995,7 +1010,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
             <hashTree/>
@@ -1060,7 +1075,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot; },{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} },{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -1110,7 +1125,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
             <hashTree/>
@@ -1182,7 +1197,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${valueFalse}&quot; },{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${valueFalse}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse} },{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -1232,7 +1247,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
             <hashTree/>
@@ -1298,7 +1313,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             </JSONPostProcessor>
             <hashTree/>
           </hashTree>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_32_Channel_VerifyIsLastUpdateFieldChanged" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_22_Channel_VerifyIsLastUpdateFieldChanged" enabled="true">
             <stringProp name="TestPlan.comments">Compares two values of lastupdate field between two Get requests, and verifies is first lastUpdate value less then second lastUpdate value.</stringProp>
             <stringProp name="BeanShellSampler.query">long lastUpdateFirst = Long.parseLong(&quot;${lastUpdateFirst_device}&quot;); 
 long lastUpdateSecond = Long.parseLong(&quot;${lastUpdateSecond_device}&quot;); 
@@ -1314,7 +1329,7 @@ else
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_22_SetExecCommandToRead" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_23_SetExecCommandToRead" enabled="true">
             <stringProp name="TestPlan.comments"> Change execute command to read which will be used in requests below.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;execCommand&quot;,&quot;read&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
@@ -1322,7 +1337,7 @@ else
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_23_Post_DeviceExecuteRead_OneChannel" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_24_Post_DeviceExecuteRead_OneChannel" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -1387,7 +1402,7 @@ else
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_24_Post_DeviceExecuteRead_TwoChannels" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_25_Post_DeviceExecuteRead_TwoChannels" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -1412,6 +1427,71 @@ else
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
             <stringProp name="TestPlan.comments"> Perform POST READ action on the device with two existing channels, verifies is status code 200 OK and Action sent.</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2524">OK</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyTextResponse" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="211028300">Action sent.</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_25a_Post_DeviceExecuteRead_ChannelWithReadType" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [ &quot;${component_id_read}&quot;]}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${device_execute}/${execCommand}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments"> Perform POST READ action on the device with existing channel which has Type READ verifies is status code 200 OK and Action sent.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -1568,7 +1648,7 @@ else
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_27_Get_Channel" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_26_Get_Channel" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1635,7 +1715,7 @@ else
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_28_Post_SetPayloadParams" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_27_Post_SetPayloadParams" enabled="true">
             <stringProp name="TestPlan.comments">Set variables for payload of requests below, type to BOOLEAN and True and False values</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;type&quot;,&quot;BOOLEAN&quot;);
 vars.put(&quot;value&quot;,&quot;true&quot;);
@@ -1645,13 +1725,13 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_29_Post_FirstChannelValueToTrue" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_28_Post_FirstChannelValueToTrue" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -1710,7 +1790,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_30_Get_ChannelLastUpdate_CheckFirstChannelValueIsTrue" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_29_Get_ChannelLastUpdate_CheckFirstChannelValueIsTrue" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1759,13 +1839,13 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_31_Post_FirstChannelValueToFalse" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_30_Post_FirstChannelValueToFalse" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${valueFalse}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -1824,7 +1904,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_32_Get_ChannelLastUpdate_CheckFirstChannelValueIsFalse" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_31_Get_ChannelLastUpdate_CheckFirstChannelValueIsFalse" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1873,7 +1953,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_33_Post_ChangeComponentIDToSecondChannel" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_32_Post_ChangeComponentIDToSecondChannel" enabled="true">
             <stringProp name="TestPlan.comments"> Change component id in the channel endpoint to second channel</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;channel&quot;,&quot;services/device/${device_id}/${component_id1}&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
@@ -1881,13 +1961,13 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_34_Post_SecondChannelValueToTrue" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_33_Post_SecondChannelValueToTrue" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -1946,7 +2026,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_35_Get_ChannelLastUpdate_CheckSecondChannelValueIsTrue" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_34_Get_ChannelLastUpdate_CheckSecondChannelValueIsTrue" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2002,13 +2082,13 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             </JSONPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_36_Post_SecondChannelValueToFalse" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_35_Post_SecondChannelValueToFalse" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${valueFalse}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -2067,7 +2147,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_37_Get_ChannelLastUpdate_CheckSecondChannelValueIsFalse" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_36_Get_ChannelLastUpdate_CheckSecondChannelValueIsFalse" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2123,7 +2203,7 @@ vars.put(&quot;valueFalse&quot;,&quot;false&quot;);</stringProp>
             </JSONPostProcessor>
             <hashTree/>
           </hashTree>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_38_Channel_VerifyIsLastUpdateFieldChanged" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_37_Channel_VerifyIsLastUpdateFieldChanged" enabled="true">
             <stringProp name="TestPlan.comments">Compares two values of lastupdate field between two Get requests, and verifies is first lastUpdate value less then second lastUpdate value.</stringProp>
             <stringProp name="BeanShellSampler.query">long lastUpdateFirst = Long.parseLong(&quot;${lastUpdateFirst_channel}&quot;); 
 long lastUpdateSecond = Long.parseLong(&quot;${lastUpdateSecond_channel}&quot;); 
@@ -2139,7 +2219,7 @@ else
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_39_Post_ChangeComponentIDToFirstChannel" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_38_Post_ChangeComponentIDToFirstChannel" enabled="true">
             <stringProp name="TestPlan.comments"> Return component id in the channel endpoint to first channel</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;channel&quot;,&quot;services/device/${device_id}/${component_id}&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
@@ -2147,7 +2227,7 @@ else
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_40_SetExecCommandToWrite" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_39_SetExecCommandToWrite" enabled="true">
             <stringProp name="TestPlan.comments"> Set execute command to write method which will use requests below.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;execCommand&quot;,&quot;write&quot;);
 </stringProp>
@@ -2156,7 +2236,7 @@ else
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_41_Get_DeviceLastUpdate" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_40_Get_DeviceLastUpdate" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2213,13 +2293,13 @@ else
             </JSONPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_42_Post_DeviceExecuteWriteToTrue" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_41_Post_DeviceExecuteWriteToTrue" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot; },{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${valueFalse}&quot; }]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} },{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse} }]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -2269,7 +2349,7 @@ else
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
             <hashTree/>
@@ -2278,7 +2358,7 @@ else
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_43_Get_DeviceLastUpdateAgain" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_42_Get_DeviceLastUpdateAgain" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2335,7 +2415,7 @@ else
             </JSONPostProcessor>
             <hashTree/>
           </hashTree>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_44_Devices_VerifyIsLastUpdateFieldChanged" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_43_Devices_VerifyIsLastUpdateFieldChanged" enabled="true">
             <stringProp name="TestPlan.comments">Compares two values of lastupdate field between two Get requests, and verifies is first lastUpdate value less then second lastUpdate value.</stringProp>
             <stringProp name="BeanShellSampler.query">long lastUpdateFirst = Long.parseLong(&quot;${lastUpdateFirst}&quot;); 
 long lastUpdateSecond = Long.parseLong(&quot;${lastUpdateSecond}&quot;); 
@@ -2351,44 +2431,442 @@ else
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="1_View Results Tree" enabled="true">
-            <boolProp name="ResultCollector.error_logging">false</boolProp>
-            <objProp>
-              <name>saveConfig</name>
-              <value class="SampleSaveConfiguration">
-                <time>true</time>
-                <latency>true</latency>
-                <timestamp>true</timestamp>
-                <success>true</success>
-                <label>true</label>
-                <code>true</code>
-                <message>true</message>
-                <threadName>true</threadName>
-                <dataType>true</dataType>
-                <encoding>false</encoding>
-                <assertions>true</assertions>
-                <subresults>true</subresults>
-                <responseData>false</responseData>
-                <samplerData>false</samplerData>
-                <xml>false</xml>
-                <fieldNames>true</fieldNames>
-                <responseHeaders>false</responseHeaders>
-                <requestHeaders>false</requestHeaders>
-                <responseDataOnError>false</responseDataOnError>
-                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                <assertionsResultsToSave>0</assertionsResultsToSave>
-                <bytes>true</bytes>
-                <sentBytes>true</sentBytes>
-                <threadCounts>true</threadCounts>
-                <idleTime>true</idleTime>
-                <connectTime>true</connectTime>
-              </value>
-            </objProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="TestPlan.comments"> Results of test execution of the  1_Device_Endpoints_PositiveTests controller</stringProp>
-          </ResultCollector>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_44_SetComponentIdRead" enabled="true">
+            <stringProp name="TestPlan.comments">Set channel_endpoint and pass component id which has read type</stringProp>
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;channel&quot;,&quot;services/device/${device_id}/${component_id_read}&quot;);
+</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_45_Get_ChannelWithReadType" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${channel}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">  Get of channel which has type set to READ, verifies 200 status, verifies json format, deviceID and channelsID, and verifies is the channel value False.</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion deviceId" enabled="true">
+              <stringProp name="JSON_PATH">$..deviceID</stringProp>
+              <stringProp name="EXPECTED_VALUE">${device_id}</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion componentId" enabled="true">
+              <stringProp name="JSON_PATH">$..componentID</stringProp>
+              <stringProp name="EXPECTED_VALUE">${component_id_read}</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyJsonResponseFormat" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-321544960">&quot;deviceID&quot;:&quot;${device_id}&quot;,&quot;componentID&quot;:&quot;${component_id_read}&quot;,&quot;value&quot;:&quot;${valueFalse}&quot;</stringProp>
+                <stringProp name="3594628">unit</stringProp>
+                <stringProp name="1992879871">lastUpdate</stringProp>
+                <stringProp name="-1268779017">format</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_46_Post_SetPayloadParams" enabled="true">
+            <stringProp name="TestPlan.comments">Set parameters for requests below: executeCommand to write, type to BOOLEAN, value to true, device_execute and device_lastupdate endpoint with existing device id and existing component_id with type READ</stringProp>
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;execCommand&quot;,&quot;write&quot;);
+vars.put(&quot;type&quot;,&quot;BOOLEAN&quot;);
+vars.put(&quot;value&quot;,&quot;true&quot;);
+vars.put(&quot;device_execute&quot;,&quot;services/device/${device_id}/execute&quot;);
+vars.put(&quot;device_lastupdate&quot;,&quot;services/device/${device_id}/lastUpdate&quot;);
+</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_47_Post_DeviceExecuteWrite_ToChannelWithTypeRead" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id_read}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} }]}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${device_execute}/${execCommand}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments"> Try to perform execute WRITE with existing component_id which has type READ in payload, verifies status code is 200 Action sent, and after this verify is value set to True</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1101571294">Action sent</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_48_Get_DeviceLastUpdate_CheckIsChannelValueDidntChangeToTrue" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${device_lastupdate}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to perform GET of  device_lastupdate, verifies is channel with type READ didnt change value to True and is status code 200 </stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-321544960">&quot;deviceID&quot;:&quot;${device_id}&quot;,&quot;componentID&quot;:&quot;${component_id_read}&quot;,&quot;value&quot;:&quot;${valueFalse}&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_49_SetParametersForPayloadAndEndpoint_WriteToChannelWithWriteType" enabled="true">
+            <stringProp name="TestPlan.comments">Set parameters for requests below: executeCommand to write, type to BOOLEAN, value to true, device_execute and device_lastupdate endpoint with device id which has component id with type WRITE</stringProp>
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;execCommand&quot;,&quot;write&quot;);
+vars.put(&quot;type&quot;,&quot;BOOLEAN&quot;);
+vars.put(&quot;value&quot;,&quot;true&quot;);
+vars.put(&quot;device_execute&quot;,&quot;services/device/${device_id_channelwrite}/execute&quot;);
+vars.put(&quot;device_lastupdate&quot;,&quot;services/device/${device_id_channelwrite}/lastUpdate&quot;);
+</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_50_Post_DeviceExecuteWrite_ToChannelWithTypeWrite" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id_write}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} }]}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${device_execute}/${execCommand}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments"> Try to perform execute WRITE with existing component_id which has type WRITE in payload, verifies status code is 200 Action sent, and after this verify is value set to True</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1101571294">Action sent</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_51_Get_DeviceLastUpdate_CheckChannelValueDidntChangeToTrue" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${device_lastupdate}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to perform GET of  device_lastupdate, verifies is channel with type WRITE changed value to True and is status code 200 </stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="47924005">&quot;deviceID&quot;:&quot;${device_id_channelwrite}&quot;,&quot;componentID&quot;:&quot;${component_id_write}&quot;,&quot;value&quot;:&quot;${value}&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_52_SetParameterAndChangeExecuteCommandToRead" enabled="true">
+            <stringProp name="TestPlan.comments">Set parameters for requests below: executeCommand to write, type to BOOLEAN, value to true, device_execute and device_lastupdate endpoint with device id which has component id with type WRITE</stringProp>
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;execCommand&quot;,&quot;read&quot;);
+</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_53_Post_DeviceExecuteRead_ToChannelWithTypeWrite" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [ &quot;${component_id_write}&quot;]}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${device_execute}/${execCommand}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments"> Perform POST READ action on the device with first existing channel verifies is status code 200 OK and Action sent.</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2524">OK</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyTextResponse" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="211028300">Action sent.</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="1_54_SetParametersForPayloadAndEndpoint_ReturnToDefaultDeviceId" enabled="true">
+            <stringProp name="TestPlan.comments">Set parameters for requests below: executeCommand to write, type to BOOLEAN, value to true, device_execute and device_lastupdate endpoint with device id which has component id with type WRITE</stringProp>
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;execCommand&quot;,&quot;write&quot;);
+vars.put(&quot;type&quot;,&quot;BOOLEAN&quot;);
+vars.put(&quot;value&quot;,&quot;true&quot;);
+vars.put(&quot;device_execute&quot;,&quot;services/device/${device_id}/execute&quot;);
+vars.put(&quot;device_lastupdate&quot;,&quot;services/device/${device_id}/lastUpdate&quot;);
+</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
           <hashTree/>
         </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="1_View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="TestPlan.comments"> Results of test execution of the  1_Device_Endpoints_PositiveTests controller</stringProp>
+        </ResultCollector>
+        <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="2_Device_Endpoints_NegativeTests" enabled="true">
           <stringProp name="TestPlan.comments"> Controller with negative test cases for all implemented Device services. Verifies BAD REQUEST, NOT FOUND, NO CONTENT</stringProp>
         </GenericController>
@@ -2992,7 +3470,75 @@ vars.put(&quot;device_execute&quot;, &quot;services/device/${device_id}/execute&
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
-            <stringProp name="TestPlan.comments">Try to perform execute WRITE without payload, verifies is status code 400 BAD request and massege with expected payload format in response </stringProp>
+            <stringProp name="TestPlan.comments">Try to perform execute WRITE without payload, verifies is status code 400 BAD request and message with expected payload format in response </stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="51508">400</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2117236020">Bad Request</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1106934499">Bad request, expected request format: {&quot;channels&quot;: </stringProp>
+                <stringProp name="687587298">&quot;name&quot;: &quot;channel-1&quot;</stringProp>
+                <stringProp name="-748450892">&quot;type&quot;:</stringProp>
+                <stringProp name="-642387161">&quot;value&quot;:</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_18_Post_DeviceExecuteWrite_BAD JSON FORMAT" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">:;!{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value} }]}Wrong Json Format</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${device_execute}/${execCommand}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to execute read device with bad json format, verifies is status code 400 BAD request and message with expected payload format in response </stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -3110,6 +3656,71 @@ vars.put(&quot;device_execute&quot;, &quot;services/device/${device_id}/execute&
             </DurationAssertion>
             <hashTree/>
           </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_14_Post_DeviceExecuteRead_BAD JSON FORMAT" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">:;!{&quot;channels&quot;: [ &quot;${component_id}&quot;,&quot;${component_id1}&quot;]}Json wrong format</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${device_execute}/${execCommand}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to execute read device with bad json format, verifies is status code 400 BAD request and message with expected payload format in response </stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="51512">404</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1786305461">Not Found</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-541992557">Bad request, expected request format: {&quot;channels&quot;: [ &quot;channel-1&quot;, &quot;channel-2&quot;]}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_21_Get_DeviceExecuteRead_WrongComponentIdInPayload" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -3161,7 +3772,7 @@ vars.put(&quot;device_execute&quot;, &quot;services/device/${device_id}/execute&
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1670806326">Specified channel(s) doesn&apos;t exist.</stringProp>
+                <stringProp name="150091054">Specified channel(s) not found.</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3453,8 +4064,15 @@ vars.put(&quot;value&quot;,&quot;true&quot;);</stringProp>
           </BeanShellSampler>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_30_Post_Channel_BAD REQUEST" enabled="true">
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-              <collectionProp name="Arguments.arguments"/>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
@@ -3475,6 +4093,74 @@ vars.put(&quot;value&quot;,&quot;true&quot;);</stringProp>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="51508">400</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2117236020">Bad Request</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1106934499">Bad request, expected request format: {&quot;channels&quot;: </stringProp>
+                <stringProp name="687587298">&quot;name&quot;: &quot;channel-1&quot;</stringProp>
+                <stringProp name="-748450892">&quot;type&quot;:</stringProp>
+                <stringProp name="-642387161">&quot;value&quot;:</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_28_Post_Channel_BAD JSON FORMAT" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">;:!{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot; }]}Bad json format</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${channel}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to POST channel with bad json format, verifies is status code 400 BAD request and message with expected payload format in response </stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1660">40</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
@@ -3840,7 +4526,7 @@ vars.put(&quot;value&quot;,&quot;true&quot;);
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1670806326">Specified channel(s) doesn&apos;t exist.</stringProp>
+                <stringProp name="150091054">Specified channel(s) not found.</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3905,7 +4591,7 @@ vars.put(&quot;value&quot;,&quot;true&quot;);
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1670806326">Specified channel(s) doesn&apos;t exist.</stringProp>
+                <stringProp name="150091054">Specified channel(s) not found.</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3931,7 +4617,7 @@ vars.put(&quot;value&quot;,&quot;true&quot;);
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_43_Get_DeviceExecuteRead_OneChannelNotExists" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_43_Post_DeviceExecuteRead_OneChannelNotExists" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -3982,7 +4668,7 @@ vars.put(&quot;value&quot;,&quot;true&quot;);
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1670806326">Specified channel(s) doesn&apos;t exist.</stringProp>
+                <stringProp name="150091054">Specified channel(s) not found.</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3996,7 +4682,7 @@ vars.put(&quot;value&quot;,&quot;true&quot;);
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_44_Get_DeviceExecuteRead_TwoChannelNotExists" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_44_Post_DeviceExecuteRead_TwoChannelNotExists" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -4047,7 +4733,7 @@ vars.put(&quot;value&quot;,&quot;true&quot;);
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1670806326">Specified channel(s) doesn&apos;t exist.</stringProp>
+                <stringProp name="150091054">Specified channel(s) not found.</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -4201,13 +4887,13 @@ vars.put(&quot;channel&quot;,&quot;services/device/${device_id}/${component_id_w
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_48_Get_Channel_WrongChannelInUrlAndPayload" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_48_Get_Channel_WrongChannelInEndpoint" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [ &quot;${component_id_wrong}&quot;]}</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -4225,72 +4911,7 @@ vars.put(&quot;channel&quot;,&quot;services/device/${device_id}/${component_id_w
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
-            <stringProp name="TestPlan.comments"> Try to perform GET of channel  with  non-existing component_id in payload and inendpoint, verifies status code is 404 Not Found, and response data component not found</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="51512">404</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="1786305461">Not Found</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1988152836">Component not found.</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">true</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-              <stringProp name="Assertion.scope">all</stringProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
-              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
-            </DurationAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2_49_Get_Channel_WrongTwoChannelInUrlAndPayload" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [ &quot;${component_id_wrong}&quot;,&quot;${component_id_wrong1}&quot;]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
-            <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol"></stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/${channel}</stringProp>
-            <stringProp name="HTTPSampler.method">GET</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
-            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
-            <stringProp name="TestPlan.comments"> Try to perform GET  of channel  with two non-existing component_id in payload and one in endpoint, verifies status code is 404 Not Found, and response data component not found</stringProp>
+            <stringProp name="TestPlan.comments"> Try to perform GET of channel  with  non-existing component_id i endpoint, verifies status code is 404 Not Found, and response data component not found</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
@@ -6337,7 +6958,7 @@ vars.put(&quot;value&quot;, &quot;true&quot;);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot;}]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value}}]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -6461,7 +7082,7 @@ vars.put(&quot;value&quot;, &quot;true&quot;);</stringProp>
             <stringProp name="TestPlan.comments">Set parameters type to BOOLEAN and value to True and False for payload of Write and Read calls via protocol, which will be used in the following POST AND GET requests.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;type&quot;, &quot;BOOLEAN&quot;);
 vars.put(&quot;value&quot;, &quot;true&quot;);
-vars.put(&quot;value1&quot;, &quot;false&quot;);</stringProp>
+vars.put(&quot;valueFalse&quot;, &quot;false&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
@@ -6473,7 +7094,7 @@ vars.put(&quot;value1&quot;, &quot;false&quot;);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value}&quot;},{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: &quot;${value1}&quot;}]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value}},{&quot;name&quot;: &quot;${component_id1}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${valueFalse}}]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -6584,7 +7205,7 @@ vars.put(&quot;value1&quot;, &quot;false&quot;);</stringProp>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="-722585708">&quot;deviceID&quot;:&quot;${device_id}&quot;,&quot;componentID&quot;:&quot;${component_id}&quot;,&quot;value&quot;:&quot;${value}&quot;</stringProp>
-                <stringProp name="-388931094">&quot;deviceID&quot;:&quot;${device_id}&quot;,&quot;componentID&quot;:&quot;${component_id1}&quot;,&quot;value&quot;:&quot;${value1}&quot;</stringProp>
+                <stringProp name="-1484905412">&quot;deviceID&quot;:&quot;${device_id}&quot;,&quot;componentID&quot;:&quot;${component_id1}&quot;,&quot;value&quot;:&quot;${valueFalse}&quot;</stringProp>
                 <stringProp name="-730174594">&quot;unit&quot;:</stringProp>
                 <stringProp name="-1783624519">&quot;lastUpdate&quot;:</stringProp>
                 <stringProp name="-849831759">&quot;format&quot;:</stringProp>
@@ -7377,7 +7998,75 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_18_Post_Protocol_Device_No Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_18_Post_Protocol_Device_BAD JSON FORMAT" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">:;!{&quot;channels&quot;: [{&quot;name&quot;: &quot;${component_id}&quot;, &quot;type&quot;: &quot;${type}&quot;, &quot;value&quot;: ${value}}]}Wrong Format</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ip_address}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${protocol_device}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
+            <stringProp name="TestPlan.comments">Try to write via protocol with existing component id and with wrong json format in the payload, verifies is status code 400 Bad request</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="51508">400</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseMessage" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2117236020">Bad Request</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1106934499">Bad request, expected request format: {&quot;channels&quot;: </stringProp>
+                <stringProp name="687587298">&quot;name&quot;: &quot;channel-1&quot;</stringProp>
+                <stringProp name="-748450892">&quot;type&quot;:</stringProp>
+                <stringProp name="-642387161">&quot;value&quot;:</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="VerifyRequestDuration" enabled="true">
+              <stringProp name="DurationAssertion.duration">${request_time_execution}</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_19_Post_Protocol_Device_No Auth" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -7442,7 +8131,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_19_Get_Protocol_Device_No Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_20_Get_Protocol_Device_No Auth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7500,7 +8189,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_20_Post_Protocol_Device_Wrong Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_21_Post_Protocol_Device_Wrong Auth" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -7565,7 +8254,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_21_Get_Protocol_Device_Wrong Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_22_Get_Protocol_Device_Wrong Auth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7634,7 +8323,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_22_UpdateDevicePath" enabled="true">
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="5_23_UpdateDevicePath" enabled="true">
             <stringProp name="TestPlan.comments">Set protocol_connection endpoint with existing protocol id and device id.</stringProp>
             <stringProp name="BeanShellSampler.query">vars.put(&quot;protocol_connection&quot;, &quot;services/protocol/${protocol_id}/connection/${device_id}&quot;);</stringProp>
             <stringProp name="BeanShellSampler.filename"></stringProp>
@@ -7642,7 +8331,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_23_Post_ProtocolId_Unautorized_No Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_24_Post_ProtocolId_Unautorized_No Auth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7701,7 +8390,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);</string
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_24_Delete_ProtocolId_Unautorized_No Auth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_25_Delete_ProtocolId_Unautorized_No Auth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7759,7 +8448,7 @@ sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_25_Post_ProtocolId_Unautorized_WrongAuth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_26_Post_ProtocolId_Unautorized_WrongAuth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7818,7 +8507,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
             </JSR223PreProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_26_Delete_ProtocolId_Unautorized_WrongAuth" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5_27_Delete_ProtocolId_Unautorized_WrongAuth" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -7854,7 +8543,7 @@ sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Basic 
                 <stringProp name="-787432487">Forbidden</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
               <boolProp name="Assertion.assume_success">true</boolProp>
               <intProp name="Assertion.test_type">2</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
