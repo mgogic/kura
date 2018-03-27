@@ -192,26 +192,34 @@ public class DeviceRestService {
     @Path("/{deviceId}/{componentId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response writeDataToChannel(@PathParam("deviceId") String deviceId,
-            @PathParam("componentId") String componentId, WriteRequestList writeRequest) throws KuraException {
+            @PathParam("componentId") String componentId, String writeRequest) throws KuraException {
 
         final Asset asset = getAsset(deviceId);
         Response notFound = Response.status(404).entity("Component not found.").build();
-        validate(writeRequest, BAD_WRITE_REQUEST_ERROR_MESSAGE);
 
-        final List<ChannelRecord> records = writeRequest.getRequests().stream()
-                .map(request -> request.toChannelRecord()).collect(Collectors.toList());
+        try {
+            WriteRequestList writeRequestList = new Gson().fromJson(writeRequest, WriteRequestList.class);
+            validate(writeRequestList, BAD_WRITE_REQUEST_ERROR_MESSAGE);
 
-        if (!asset.getAssetConfiguration().getAssetChannels().containsKey(componentId)) {
-            return notFound;
-        }
-        if (!records.get(0).getChannelName().equals(componentId)) {
-            return notFound;
-        }
-        if (records.size() > 1) {
-            return Response.noContent().build();
-        }
-        asset.write(records);
+            final List<ChannelRecord> records = writeRequestList.getRequests().stream()
+                    .map(request -> request.toChannelRecord()).collect(Collectors.toList());
 
+            if (!asset.getAssetConfiguration().getAssetChannels().containsKey(componentId)) {
+                return notFound;
+            }
+            if (!records.get(0).getChannelName().equals(componentId)) {
+                return notFound;
+            }
+            if (records.size() > 1) {
+                return Response.noContent().build();
+            }
+            asset.write(records);
+        } catch (Exception e) {
+            logger.error("Exception : ", e);
+
+            throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
+                    .entity(BAD_WRITE_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+        }
         return Response.ok("Write sent", MediaType.TEXT_PLAIN).build();
     }
 
@@ -292,16 +300,21 @@ public class DeviceRestService {
         List<String> existingChannelNames = new ArrayList<String>(
                 asset.getAssetConfiguration().getAssetChannels().keySet());
         Response noChannelFound = Response.status(404).entity("Specified channel(s) not found.").build();
-        Response malformedJson = Response.status(500).entity("Malformed Json in request").build();
+
+        WebApplicationException badReadRequest = new WebApplicationException(Response.status(Status.BAD_REQUEST)
+                .entity(BAD_READ_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+        WebApplicationException badWriteRequest = new WebApplicationException(Response.status(Status.BAD_REQUEST)
+                .entity(BAD_WRITE_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+
         Response responseOk = Response.status(200).entity("Action sent.").build();
         Gson gson = new Gson();
 
         if ("read".equals(command)) {
 
             if (request.isEmpty()) {
-                throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
-                        .entity(BAD_READ_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+                throw badReadRequest;
             }
+
             try {
                 ReadRequest readRequest = gson.fromJson(request, ReadRequest.class);
                 validate(readRequest, BAD_READ_REQUEST_ERROR_MESSAGE);
@@ -313,18 +326,20 @@ public class DeviceRestService {
                     return responseOk;
                 }
             } catch (Exception e) {
-                logger.error("Exception is : ", e);
+                // Handle com.google.gson.JsonSyntaxException
+                logger.error("Exception  : ", e);
 
-                return malformedJson;
+                throw badReadRequest;
+
             }
             return noChannelFound;
 
         } else if ("write".equals(command)) {
 
             if (request.isEmpty()) {
-                throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
-                        .entity(BAD_WRITE_REQUEST_ERROR_MESSAGE).type(MediaType.TEXT_PLAIN).build());
+                throw badWriteRequest;
             }
+
             try {
                 WriteRequestList writeRequestlist = gson.fromJson(request, WriteRequestList.class);
 
@@ -343,9 +358,10 @@ public class DeviceRestService {
                     return responseOk;
                 }
             } catch (Exception e) {
-                // To handle com.google.gson.JsonSyntaxException
+                // Handle com.google.gson.JsonSyntaxException
                 logger.error("Exception is : ", e);
-                return malformedJson;
+
+                throw badWriteRequest;
             }
             return noChannelFound;
 

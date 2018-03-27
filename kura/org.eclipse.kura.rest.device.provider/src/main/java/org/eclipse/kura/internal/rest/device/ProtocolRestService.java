@@ -139,6 +139,8 @@ public class ProtocolRestService {
         String data = null;
         Gson gson = new Gson();
 
+        checkIfDeviceAndProtocolExists(deviceId, protocolId);
+
         if (!isDeviceConnectedViaProtocol(asset, protocolId)) {
 
             return Response.status(400).entity("This combination of device and protocol is not available.").build();
