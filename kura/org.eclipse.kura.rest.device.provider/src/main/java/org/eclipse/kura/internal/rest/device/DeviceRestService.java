@@ -76,8 +76,7 @@ public class DeviceRestService {
     @RolesAllowed("assets")
     @Path("/{deviceId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getDeviceChannels(@PathParam("deviceId") String deviceId)
-            throws KuraException, InvalidSyntaxException {
+    public Response getDeviceChannels(@PathParam("deviceId") String deviceId) throws KuraException {
 
         Asset asset = getAsset(deviceId);
 
@@ -89,12 +88,10 @@ public class DeviceRestService {
     @Path("/{deviceId}/status")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getDeviceStatus(@PathParam("deviceId") String deviceId) {
-        String status = null;
         JsonObject statusObject = new JsonObject();
         checkIfDeviceExists(deviceId);
 
-        status = "CONNECTED";
-        statusObject.addProperty("status", status);
+        statusObject.addProperty("status", "CONNECTED");
 
         return Response.ok(statusObject, MediaType.APPLICATION_JSON).build();
     }
@@ -140,7 +137,7 @@ public class DeviceRestService {
             @PathParam("componentId") String componentId) {
 
         throw new WebApplicationException(Response.status(Response.Status.NOT_IMPLEMENTED).type(MediaType.TEXT_PLAIN)
-                .entity("Subscribe is not implemented. ").build());
+                .entity("Subscribe is not implemented.").build());
     }
 
     @DELETE
@@ -151,7 +148,7 @@ public class DeviceRestService {
             @PathParam("componentId") String componentId) {
 
         throw new WebApplicationException(Response.status(Response.Status.NOT_IMPLEMENTED).type(MediaType.TEXT_PLAIN)
-                .entity("Unsubscribe is not implemented. ").build());
+                .entity("Unsubscribe is not implemented.").build());
     }
 
     @GET
@@ -168,7 +165,7 @@ public class DeviceRestService {
             return Response.noContent().build();
         }
         if (!channelsList.containsKey(componentId)) {
-            return Response.status(404).entity("Component not found.").build();
+            return Response.status(Response.Status.NOT_FOUND).entity("Component not found.").build();
         }
 
         List<ChannelRecord> records = asset.read(channelsList.keySet());
@@ -192,10 +189,10 @@ public class DeviceRestService {
     @Path("/{deviceId}/{componentId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response writeDataToChannel(@PathParam("deviceId") String deviceId,
-            @PathParam("componentId") String componentId, String writeRequest) throws KuraException {
+            @PathParam("componentId") String componentId, String writeRequest) {
 
         final Asset asset = getAsset(deviceId);
-        Response notFound = Response.status(404).entity("Component not found.").build();
+        Response notFound = Response.status(Response.Status.NOT_FOUND).entity("Component not found.").build();
 
         try {
             WriteRequestList writeRequestList = new Gson().fromJson(writeRequest, WriteRequestList.class);
@@ -262,15 +259,15 @@ public class DeviceRestService {
         final Asset asset = getAsset(deviceId);
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
         List<ChannelRecord> records = asset.read(channelsList.keySet());
-        Device[] devices = new Device[records.size()];
+        List<Device> devices = new ArrayList<>();
         for (int i = 0; i < records.size(); i++) {
             String value = records.get(i).getValue().getValue().toString();
-            devices[i] = new Device(assetService.getAssetPid(asset), records.get(i).getChannelName(), value, "", "",
-                    Long.toString(records.get(i).getTimestamp()));
+            devices.add(new Device(assetService.getAssetPid(asset), records.get(i).getChannelName(), value, "", "",
+                    Long.toString(records.get(i).getTimestamp())));
 
         }
 
-        if (devices.length == 0) {
+        if (devices.size() == 0) {
             return Response.noContent().build();
         }
 
@@ -278,18 +275,18 @@ public class DeviceRestService {
     }
 
     private Response getDeviceResponse(final Asset asset) throws KuraException {
-        List<Device> deviceList = new ArrayList<Device>();
+        List<Device> deviceList = new ArrayList<>();
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
-        List<String> channelNames = new ArrayList<String>(channelsList.keySet());
         List<ChannelRecord> records = asset.read(channelsList.keySet());
 
         if (channelsList.isEmpty()) {
             return Response.noContent().build();
         }
-        for (int i = 0; i < channelsList.size(); i++) {
-            String value = records.get(i).getValue().getValue().toString();
-            deviceList.add(new Device(assetService.getAssetPid(asset), channelNames.get(i), value, "", "",
-                    Long.toString(records.get(i).getTimestamp())));
+
+        for (ChannelRecord record : records) {
+            String value = record.getValue().getValue().toString();
+            deviceList.add(new Device(assetService.getAssetPid(asset), record.getChannelName(), value, "", "",
+                    Long.toString(record.getTimestamp())));
         }
 
         return Response.ok(getChannelSerializer().toJsonTree(deviceList), MediaType.APPLICATION_JSON).build();

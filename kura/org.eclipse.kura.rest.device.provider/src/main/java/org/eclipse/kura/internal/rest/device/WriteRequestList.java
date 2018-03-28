@@ -14,18 +14,18 @@ import java.util.List;
 
 public class WriteRequestList implements Validable {
 
-    private List<WriteRequest> channels;
+    private List<WriteRequest> requests;
 
     public List<WriteRequest> getRequests() {
-        return channels;
+        return requests;
     }
 
     @Override
     public boolean isValid() {
-        if (channels == null) {
+        if (requests == null) {
             return false;
         }
-        for (WriteRequest request : channels) {
+        for (WriteRequest request : requests) {
             if (!request.isValid()) {
                 return false;
             }
