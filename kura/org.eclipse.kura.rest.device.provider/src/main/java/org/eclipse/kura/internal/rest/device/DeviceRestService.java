@@ -257,21 +257,8 @@ public class DeviceRestService {
     public Response readLastDataFromDevice(@PathParam("deviceId") String deviceId) throws KuraException {
 
         final Asset asset = getAsset(deviceId);
-        Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
-        List<ChannelRecord> records = asset.read(channelsList.keySet());
-        List<Device> devices = new ArrayList<>();
-        for (int i = 0; i < records.size(); i++) {
-            String value = records.get(i).getValue().getValue().toString();
-            devices.add(new Device(assetService.getAssetPid(asset), records.get(i).getChannelName(), value, "", "",
-                    Long.toString(records.get(i).getTimestamp())));
 
-        }
-
-        if (devices.size() == 0) {
-            return Response.noContent().build();
-        }
-
-        return Response.ok(getChannelSerializer().toJsonTree(devices), MediaType.APPLICATION_JSON).build();
+        return getDeviceResponse(asset);
     }
 
     private Response getDeviceResponse(final Asset asset) throws KuraException {

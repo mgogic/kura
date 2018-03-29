@@ -30,7 +30,8 @@ public class WriteRequest implements Validable {
      * Field type contains all the required data type constants required for representing Java data types as TypedValue
      * This field represent type of data that user wants to write on component
      * 
-     * @see TypedValue
+     * @see org.eclipse.kura.type.TypedValue
+     * @see org.eclipse.kura.type.DataType
      */
     private DataType type;
     /**

@@ -12,9 +12,8 @@ package org.eclipse.kura.internal.rest.device;
 
 /**
  * Class represents Kura device
- * 
- * Data from Kura devices are stored in objects of Device class
- *
+ * This class provides parameters describing Kura device -
+ * deviceID, componentID, value, unit, etc.
  */
 
 public class Device {
@@ -40,7 +39,7 @@ public class Device {
      */
     private String lastUpdate;
     /**
-     * format field represents format of records on component
+     * format field represents format of component records
      */
     private String format;
 
@@ -67,7 +66,7 @@ public class Device {
     /**
      * Method returns device name
      * 
-     * @return
+     * @return Kura device name
      */
     public String getDeviceID() {
         return deviceID;
@@ -77,15 +76,16 @@ public class Device {
      * Method sets device name value
      * 
      * @param deviceID
+     *            Kura device name
      */
     public void setDeviceID(String deviceID) {
         this.deviceID = deviceID;
     }
 
     /**
-     * Method returns component name
+     * Method returns device component name
      * 
-     * @return
+     * @return componentID - Device's component name
      */
     public String getComponentID() {
         return componentID;
@@ -95,24 +95,26 @@ public class Device {
      * Method sets component name value
      * 
      * @param componentID
+     *            Device's component name
      */
     public void setComponentID(String componentID) {
         this.componentID = componentID;
     }
 
     /**
-     * Method returns data from device component object
+     * Method returns data from device's component 
      * 
-     * @return
+     * @return value read from component
      */
     public String getValue() {
         return value;
     }
 
     /**
-     * Method sets data on device component object
+     * Method sets data on device's component 
      * 
      * @param value
+     *            value to be set on component
      */
     public void setValue(String value) {
         this.value = value;
@@ -121,16 +123,17 @@ public class Device {
     /**
      * Method returns unit of measure for device channel
      * 
-     * @return
+     * @return unit of measure
      */
     public String getUnit() {
         return unit;
     }
 
     /**
-     * Method sets unit of measure for device channel
+     * Method sets unit of measure for device's channel
      * 
      * @param unit
+     *            unit of measure on specific device's channel
      */
     public void setUnit(String unit) {
         this.unit = unit;
@@ -139,7 +142,7 @@ public class Device {
     /**
      * Method returns time stamp of last record fetched from component
      * 
-     * @return
+     * @return time stamp of last component record
      */
     public String getLastUpdate() {
         return lastUpdate;
@@ -149,6 +152,7 @@ public class Device {
      * Method sets time stamp of last record fetched from component
      * 
      * @param lastUpdate
+     *            time stamp of last component record 
      */
     public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
@@ -157,7 +161,7 @@ public class Device {
     /**
      * Method returns format of records from component
      * 
-     * @return
+     * @return format of specific component record
      */
     public String getFormat() {
         return format;
@@ -167,6 +171,7 @@ public class Device {
      * Method sets format of records on component
      * 
      * @param format
+     *            
      */
     public void setFormat(String format) {
         this.format = format;

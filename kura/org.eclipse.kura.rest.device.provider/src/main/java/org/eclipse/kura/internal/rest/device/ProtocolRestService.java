@@ -107,10 +107,10 @@ public class ProtocolRestService {
         List<String> channelNamesFromRequest = new ArrayList<>();
 
         if (!isConnected) {
-            return Response.status(400).entity("This combination of device and protocol is not available.").build();
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("This combination of device and protocol is not available.").build();
         }
-        List<String> existingChannelNames = new ArrayList<String>(
-                asset.getAssetConfiguration().getAssetChannels().keySet());
+        List<String> existingChannelNames = new ArrayList<>(asset.getAssetConfiguration().getAssetChannels().keySet());
         validate(writeRequestList, BAD_WRITE_REQUEST_ERROR_MESSAGE);
 
         final List<ChannelRecord> records = writeRequestList.getRequests().stream().map(req -> req.toChannelRecord())
@@ -142,17 +142,18 @@ public class ProtocolRestService {
         final Asset asset = getAsset(deviceId);
         if (!isDeviceConnectedViaProtocol(asset, protocolId)) {
 
-            return Response.status(400).entity("This combination of device and protocol is not available.").build();
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("This combination of device and protocol is not available.").build();
         }
-        List<Device> deviceList = new ArrayList<Device>();
+        List<Device> deviceList = new ArrayList<>();
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
-        List<String> channelNames = new ArrayList<String>(channelsList.keySet());
         List<ChannelRecord> records = asset.read(channelsList.keySet());
 
-        for (int i = 0; i < channelsList.size(); i++) {
-            String value = records.get(i).getValue().getValue().toString();
-            deviceList.add(new Device(assetService.getAssetPid(asset), channelNames.get(i), value, "", "",
-                    Long.toString(records.get(i).getTimestamp())));
+        for (ChannelRecord channelRecord : records) {
+
+            String value = channelRecord.getValue().getValue().toString();
+            deviceList.add(new Device(assetService.getAssetPid(asset), channelRecord.getChannelName(), value.toString(),
+                    "", "", Long.toString(channelRecord.getTimestamp())));
         }
         data = gson.toJson(deviceList);
 
@@ -183,6 +184,7 @@ public class ProtocolRestService {
 
     private boolean isDeviceConnectedViaProtocol(Asset asset, String protocolId) {
         boolean isConnected = false;
+
         if (asset.getAssetConfiguration().getDriverPid().equals(protocolId)) {
             isConnected = true;
         }

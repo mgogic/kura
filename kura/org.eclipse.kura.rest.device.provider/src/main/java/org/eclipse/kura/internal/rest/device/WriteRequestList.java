@@ -12,14 +12,37 @@ package org.eclipse.kura.internal.rest.device;
 
 import java.util.List;
 
+/**
+ * WriteRequestList class represents payload with list of device components
+ * for performing write operation
+ * 
+ * @see org.eclipse.kura.internal.rest.device.WriteRequest
+ */
 public class WriteRequestList implements Validable {
 
+    /**
+     * List of WriteRequests sent in payload in POST request
+     */
     private List<WriteRequest> requests;
 
+    /**
+     * Method returns list of WriteRequests objects sent in payload
+     * 
+     * @return list of WriteRequests sent in payload
+     */
     public List<WriteRequest> getRequests() {
         return requests;
     }
 
+    /**
+     * Overrode isValid() method from Validable interface
+     * Method checks if WriteRequests from list sent in payload are valid
+     * 
+     * @return method returns true only if name, type and value are not null
+     * 
+     * @see org.eclipse.kura.internal.rest.device.Validable#isValid()
+     * @see org.eclipse.kura.internal.rest.device.WriteRequest#isValid()
+     */
     @Override
     public boolean isValid() {
         if (requests == null) {

@@ -15,10 +15,30 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+/**
+ * This interface Validable provides methods for
+ * validation of payloads sent in POST requests.
+ * Checks is payload sent in request formed properly
+ */
 public interface Validable {
 
+    /**
+     * Checks is payload sent in request formed properly
+     * 
+     * @return boolean is request valid
+     */
     public boolean isValid();
 
+    /**
+     * Method for checking is requests sent for validation null. If
+     * request is not null method calls isValid() method in order to
+     * check is request well formed
+     * 
+     * @param validable
+     *            Object for validation.
+     * @return if validable is null method returns false
+     *         else, method calls isValid() to check is request well formed
+     */
     public static boolean isValid(Validable validable) {
         if (validable == null) {
             return false;
@@ -26,6 +46,15 @@ public interface Validable {
         return validable.isValid();
     }
 
+    /**
+     * Validate request. Method calls isValid() method, and if request is malformed
+     * returns BAD_REQUEST status code with exception message
+     * 
+     * @param validable
+     *            Object for validation
+     * @param exceptionMessage
+     *            Message explaining bad request
+     */
     public static void validate(Validable validable, String exceptionMessage) {
         if (!isValid(validable)) {
             throw new WebApplicationException(
