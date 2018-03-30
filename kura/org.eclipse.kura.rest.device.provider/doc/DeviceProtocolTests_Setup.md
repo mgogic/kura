@@ -14,7 +14,7 @@ scp org.eclipse.kura.rest.device.provider-1.0.0-SNAPSHOT.jar root@ipaddress:/hom
 
 6.	In the installed  Modbus driver, **Add** a New Asset and name it: “b924dsds4d”.
 
-7.	In the created asset “b924dsds4d” **Add** two new channels: 
+7.	In the created asset “b924dsds4d” **Add** three new channels: 
 	* Temperature with type:READ_WRITE, value.type: BOOLEAN, primary.table: COILS and memory.address: 1
 	* Heater with type:READ_WRITE, value.type: BOOLEAN, primary.table: COILS and memory.address: 2
 	* ChannelRead with type:READ, value.type: BOOLEAN, primary.table: COILS and memory.address: 3
