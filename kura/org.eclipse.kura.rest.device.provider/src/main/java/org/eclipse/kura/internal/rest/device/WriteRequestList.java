@@ -23,7 +23,7 @@ public class WriteRequestList implements Validable {
     /**
      * List of WriteRequests sent in payload in POST request
      */
-    private List<WriteRequest> requests;
+    private List<WriteRequest> channels;
 
     /**
      * Method returns list of WriteRequests objects sent in payload
@@ -31,7 +31,7 @@ public class WriteRequestList implements Validable {
      * @return list of WriteRequests sent in payload
      */
     public List<WriteRequest> getRequests() {
-        return requests;
+        return channels;
     }
 
     /**
@@ -45,10 +45,10 @@ public class WriteRequestList implements Validable {
      */
     @Override
     public boolean isValid() {
-        if (requests == null) {
+        if (channels == null) {
             return false;
         }
-        for (WriteRequest request : requests) {
+        for (WriteRequest request : channels) {
             if (!request.isValid()) {
                 return false;
             }
