@@ -266,8 +266,6 @@ public class DeviceRestService {
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
         List<ChannelRecord> records = asset.read(channelsList.keySet());
 
-        logger.info(channelsList.toString());
-        logger.info(records.toString());
         if (records.isEmpty()) {
             return Response.noContent().build();
         }
@@ -277,8 +275,6 @@ public class DeviceRestService {
             deviceList.add(new Device(assetService.getAssetPid(asset), record.getChannelName(), value, "",
                     Long.toString(record.getTimestamp()), ""));
         }
-
-        logger.info(deviceList.toString());
 
         return Response.ok(getChannelSerializer().toJsonTree(deviceList), MediaType.APPLICATION_JSON).build();
     }

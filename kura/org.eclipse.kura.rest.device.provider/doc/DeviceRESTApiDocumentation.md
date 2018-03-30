@@ -1,6 +1,6 @@
 **DeviceRestService**
 ----
-  Device rest api - Rest services implemented in order to read / write data from specific Kura devices and channels.
+  Device rest api - Rest services implemented in order to read / write data from specific Kura devices and components.
 
 **Context-path: /device**
 
@@ -48,8 +48,7 @@ Indicate the current device status
 
 * **Notes:**
 
-    Method returns positive response if the device exists
-    {deviceId} in curl command needs to be switched with real device name
+    Method returns positive response if the device existss. In curl command {deviceId} needs to be switched with real device name
 
 ## Method : Get data from all device's components
 Read values of all components from the device
@@ -116,7 +115,8 @@ Read values of all components from the device
 
 * **Notes:**
 
-    Method performs read operation on all device's components, like temperature, humidity, etc.. Method checks if device exists and then performs read operations. If device doesn't have any componets attached, no content response is returned. Method returns JSON array of all components records
+    Method performs read operation on all device's components, like temperature, humidity, etc.. Method checks if device exists and then performs read operation. If device doesn't have any componets attached, no content response is returned. Method returns JSON array of all components records.
+    * Method is tested for modbus protocol.
 
 ## Method : Connect device
 Connect the device at protocol level
@@ -163,7 +163,7 @@ Connect the device at protocol level
 
 * **Notes:**
 
-    Currently method returns immediately with success. No operation is actually performed.
+    Currently, method returns immediately with success. No operation is actually performed.
 
 ## Method : Disconnect device
 Disconnect device at protocol level
@@ -210,7 +210,7 @@ Disconnect device at protocol level
 
 * **Notes:**
 
-    Currently method returns immediately with success. No operation is actually performed.
+    Currently, method returns immediately with success. No operation is actually performed.
 
 ## Method : Execute command on the device
 Perform read or write action on the device : 
@@ -276,7 +276,9 @@ Perform read or write action on the device :
 
 * **Notes:**
 
-    Method for performing read or write action on the device, on specific channels specified in the payload. Method takes Json sent from payload, and then, depends on command, performs an action, using Kura api. If device or channel sent in request doesn't exist, error 404 occures. Also, one needs to send JSON properly formed and in right format.  
+    Method for performing read or write action on the device, on specific channels specified in the payload. Method takes Json sent from payload,and then, depends on command, performs an action, using Kura api. If device or channel sent in request doesn't exist, error 404 occures. Also, one needs to send JSON properly formed and in right format.  
+    Method doesn't return any data, only message about command execution.
+    * Method is tested for modbus protocol
 
 ## Method : Subscribe to device
 Enable a subscription to a data stream. 
@@ -317,7 +319,7 @@ Enable a subscription to a data stream.
 
 * **Notes:**
 
-    Currently  not implemented.
+    Currently, this is  not implemented.
 
 ## Method : Unsubscribe from device
 Unsubscribe from a data stream. 
@@ -358,10 +360,10 @@ Unsubscribe from a data stream.
 
 * **Notes:**
 
-    Currently  not implemented.
+    Currently, this is not implemented.
 
-## Method : Read data from specific device channel
-Perform read from a device component
+## Method : Read data from specific device component
+Perform read from a device's component
    
 * **URL**
 
@@ -415,10 +417,10 @@ Perform read from a device component
 
 * **Notes:**
 
-    Method for performing read from specific device channel. Method checks if device and component exists and performs a read from component sent in url.
+    Method for performing read from specific device's channel. Method checks if device and component exist and performs a read from component sent in url. Record from component is returnd as JSON object.
 
 ## Method : Write data to specific device channel
-Write to a device component
+Write to a device's component
 
 * **URL**
 
@@ -466,10 +468,9 @@ Write to a device component
 
 * **Notes:**
 
-    Method for performing write operation to specific device channel. Method checks if device and component exists and performs write operation on channel sent in payload / url. Component id from url and payload must match in order to perform write.
-
+    Method for performing write operation to specific device's channel. Method checks if device and component exist and performs write operation on channel sent in payload / url. Component id from url and payload must match in order to perform write. Method is tested with modbus protocol.
 ## Method : Get data from all device's components
-Read from a device component
+Read from a device's component
 * **URL**
 
   /{deviceId}/{componentId}
@@ -483,7 +484,7 @@ Read from a device component
    **Required:**
  
    `deviceId = [String] - Agile device Id`
-   `componentId = [String] - Device component name, like a Temperature`
+   `componentId = [String] - Device's component name, like a Temperature`
 
 
 *  **Data Params - Payload**
@@ -521,7 +522,7 @@ Read from a device component
 * **Notes:**
 
     Method performs read operation on specific device component, like temperature. Method checks if device exists and performs read operation on specified device's components . If device doesn't have any componets attached, no content response is returned. 
-    If read is successful , method returns record from component in JSON format.
+    If read is successful , method returns record from component as JSON object.
 
 ## Method : Read last record from component
 Get the last record fetched from the component
@@ -576,6 +577,8 @@ Get the last record fetched from the component
 * **Notes:**
 
     Method gets the last record fetched from the device's component, like temperature. Method checks if device exists and performs read operation on specific component, last updated record . If device doesn't have any componets attached, no content response is returned. If read is successful, method returns  last updated record in form of JSON.
+    * Method is tested on modbus protocol.
+    * Kura still doesn't have caching of reads, so this method, in basic, performs new read from component.
 
 ## Method : Read last record from component
 Get the last record fetched from the device
@@ -637,4 +640,6 @@ Get the last record fetched from the device
         curl -X GET localhost:8080/services/device/{deviceId}/lastUpdate -u "admin:admin" -H "Content-Type: application/json"
 * **Notes:**
 
-    Method gets the last record fetched from the device's component, like temperature. Method checks if device exists and performs read operation on specific component, last updated record . If device doesn't have any componets attached, no content response is returned. If read is successful, method returns  last updated record in form of JSON.
+    Method gets the last record fetched from the device's component, like temperature. Method checks if device exists and performs read operation on specific component, last updated record . If device doesn't have any componets attached, no content response is returned. If read is successful, method returns  record from all device's component in form of JSON.
+    * Method is tested on modbus protocol.
+    * Kura still doesn't have caching of reads, so this method, in basic, performs new read from all device's component.

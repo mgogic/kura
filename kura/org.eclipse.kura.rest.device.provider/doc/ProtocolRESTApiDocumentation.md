@@ -151,7 +151,10 @@ Call a write on device's channels via protocol
 
 * **Notes:**
 
-    Method for performing write operation on device's channels connected via specific protocol. Method expects payload as JSON array, performs validation of sent payload, and if it is well formed, performs write operation. In case of malformed payload, 400 BAD_REQUEST occurs. Also, method checks is device connected via protocol sent in {protocolId} and is device and protocol exists.
+    Method for performing write operation on device's channels connected via specific protocol. Method expects payload as JSON array, performs validation of sent payload, and if it is well formed, performs write operation. In case of malformed payload, 400 BAD_REQUEST occurs. Also, method checks is device connected via protocol sent in {protocolId} and is device and protocol exist.
+    * Method doesn't work with modbus protocol becouse  implementation for modbus write still   doesn't exist.
+    *  If JSON in payload is malformed (for example "123 "{channels" : + "name" ./}" ) com.google.gson.JsonSyntaxException (500 INTERNAL_SERVER_ERROR ) is thrown.
+
 
 ## Method : Read data via protocol
 Call a read via protocol
@@ -221,4 +224,4 @@ Call a read via protocol
 
 * **Notes:**
 
-    Method performs read operation on  device's components connected via specific protocol , like temperature, humidity, etc.. Method checks if device and protocol exists, are they connected, and then performs read operations.On sucess response  method returns JSON array of all components records connected via protocol.
+    Method performs read operation on all device's components connected via specific protocol , like temperature, humidity, etc.. Method checks if device and protocol exist, are they connected, and then performs read operations.On success response  method returns JSON array of all components records connected via protocol.
