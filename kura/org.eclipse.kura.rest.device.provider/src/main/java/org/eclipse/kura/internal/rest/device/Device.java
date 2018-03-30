@@ -51,8 +51,8 @@ public class Device {
      * @param componentID
      * @param value
      * @param unit
-     * @param format
      * @param lastUpdate
+     * @param format
      */
     public Device(String deviceID, String componentID, String value, String unit, String lastUpdate, String format) {
         this.deviceID = deviceID;
@@ -102,7 +102,7 @@ public class Device {
     }
 
     /**
-     * Method returns data from device's component 
+     * Method returns data from device's component
      * 
      * @return value read from component
      */
@@ -111,7 +111,7 @@ public class Device {
     }
 
     /**
-     * Method sets data on device's component 
+     * Method sets data on device's component
      * 
      * @param value
      *            value to be set on component
@@ -152,7 +152,7 @@ public class Device {
      * Method sets time stamp of last record fetched from component
      * 
      * @param lastUpdate
-     *            time stamp of last component record 
+     *            time stamp of last component record
      */
     public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
@@ -171,7 +171,7 @@ public class Device {
      * Method sets format of records on component
      * 
      * @param format
-     *            
+     * 
      */
     public void setFormat(String format) {
         this.format = format;

@@ -153,7 +153,7 @@ public class ProtocolRestService {
 
             String value = channelRecord.getValue().getValue().toString();
             deviceList.add(new Device(assetService.getAssetPid(asset), channelRecord.getChannelName(), value.toString(),
-                    "", "", Long.toString(channelRecord.getTimestamp())));
+                    "", Long.toString(channelRecord.getTimestamp()), ""));
         }
         data = gson.toJson(deviceList);
 

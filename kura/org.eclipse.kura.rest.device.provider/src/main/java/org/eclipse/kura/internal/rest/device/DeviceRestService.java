@@ -175,7 +175,7 @@ public class DeviceRestService {
 
                 String value = channelRecord.getValue().getValue().toString();
                 device = new Device(assetService.getAssetPid(asset), channelRecord.getChannelName(), value.toString(),
-                        "", "", Long.toString(channelRecord.getTimestamp()));
+                        "", Long.toString(channelRecord.getTimestamp()), "");
 
                 return Response.ok(getChannelSerializer().toJsonTree(device), MediaType.APPLICATION_JSON).build();
             }
@@ -240,8 +240,8 @@ public class DeviceRestService {
             if (channelRecord.getChannelName().equals(componentId)) {
 
                 String value = channelRecord.getValue().getValue().toString();
-                device = new Device(assetService.getAssetPid(asset), channelRecord.getChannelName(), value, "", "",
-                        Long.toString(channelRecord.getTimestamp()));
+                device = new Device(assetService.getAssetPid(asset), channelRecord.getChannelName(), value, "",
+                        Long.toString(channelRecord.getTimestamp()), "");
 
                 return Response.ok(getChannelSerializer().toJsonTree(device), MediaType.APPLICATION_JSON).build();
             }
@@ -266,15 +266,19 @@ public class DeviceRestService {
         Map<String, Channel> channelsList = asset.getAssetConfiguration().getAssetChannels();
         List<ChannelRecord> records = asset.read(channelsList.keySet());
 
-        if (channelsList.isEmpty()) {
+        logger.info(channelsList.toString());
+        logger.info(records.toString());
+        if (records.isEmpty()) {
             return Response.noContent().build();
         }
 
         for (ChannelRecord record : records) {
             String value = record.getValue().getValue().toString();
-            deviceList.add(new Device(assetService.getAssetPid(asset), record.getChannelName(), value, "", "",
-                    Long.toString(record.getTimestamp())));
+            deviceList.add(new Device(assetService.getAssetPid(asset), record.getChannelName(), value, "",
+                    Long.toString(record.getTimestamp()), ""));
         }
+
+        logger.info(deviceList.toString());
 
         return Response.ok(getChannelSerializer().toJsonTree(deviceList), MediaType.APPLICATION_JSON).build();
     }
