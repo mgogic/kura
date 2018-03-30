@@ -6,7 +6,7 @@ scp org.eclipse.kura.rest.device.provider-1.0.0-SNAPSHOT.jar root@ipaddress:/hom
 
 2.	**Run** command in the RPI: telnet localhost 5002.
 
-3.	**Install** the snaphot in the osqi console:  install file:/home/ org.eclipse.kura.rest.device.provider-1.0.0-SNAPSHOT.jar
+3.	**Install** the snaphot in the osqi console:  install file:/home/org.eclipse.kura.rest.device.provider-1.0.0-SNAPSHOT.jar
 
 4.	**Start** the installed bundle in the osgi console: start bundleID (For example: start 138)
 
@@ -26,11 +26,11 @@ scp org.eclipse.kura.rest.device.provider-1.0.0-SNAPSHOT.jar root@ipaddress:/hom
 
 10.	**Start** Modbus.jar, open ModbusPal_test_project, and run the project.
 
-11.	In the Modbas.jar-> Modbus slaves, **Click** on the EYE button, Coils tab and add 4 rows (created memory.addresses) select all the rows below and unbind them.
+11.	In the Modbas.jar-> Modbus slaves, **Click** on the EYE button, Coils tab and add 4 rows (represent created memory.addresses) select all the rows below and unbind them.
 
 12.	**Open** JMeter and import Jmeter script: DevicesProtocolsScript.jmx.
 
-13.	**Setup** parameters such as ip_address, Kura username and password in the SetTestPlanParameters file insade JMeter tool
+13.	**Setup** parameters such as ip_address, Kura username and password in the SetTestPlanParameters file insade the JMeter tool
 
 14.	**Run** the tests with Start (Play green) button and watch general test results in the file: 99_View Results Tree in JMeter script.
 
