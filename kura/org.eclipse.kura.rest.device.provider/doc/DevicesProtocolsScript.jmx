@@ -5,7 +5,7 @@
       <stringProp name="TestPlan.comments"> Test plan contains list of all required parameters for Device and Protocol tests</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
-      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="ip_address" elementType="Argument">
@@ -75,7 +75,7 @@
           </elementProp>
           <elementProp name="number_of_users" elementType="Argument">
             <stringProp name="Argument.name">number_of_users</stringProp>
-            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.value">${__P(USERS,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="component_id_read" elementType="Argument">
@@ -93,6 +93,11 @@
             <stringProp name="Argument.value">devicewithchannelwrite</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="execution_time" elementType="Argument">
+            <stringProp name="Argument.name">execution_time</stringProp>
+            <stringProp name="Argument.value">${__P(EXECTIME,3)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
@@ -105,11 +110,12 @@
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">${number_of_users}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${execution_time}</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-        <stringProp name="TestPlan.comments"> This is a test thread where can be set number of users for the tests. number_of_users variable is set in the SetTestPlanParameters</stringProp>
+        <stringProp name="TestPlan.comments"> This is a test thread where can be set number of users for the tests and ramp up period. The number_of_users and  execution_time variables are set in the SetTestPlanParameters and it could be set also in Jenkins project.</stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
       </ThreadGroup>
       <hashTree>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Set_Endpoints" enabled="true">
