@@ -2695,7 +2695,7 @@ vars.put(&quot;device_lastupdate&quot;,&quot;services/device/${device_id_channel
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_51_Get_DeviceLastUpdate_CheckChannelValueDidntChangeToTrue" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_51_Get_DeviceLastUpdate_CheckChannelWriteCanBeRead" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2712,12 +2712,12 @@ vars.put(&quot;device_lastupdate&quot;,&quot;services/device/${device_id_channel
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
-            <stringProp name="TestPlan.comments">Try to perform GET of  device_lastupdate, verifies is channel with type WRITE changed value to True and is status code 200 </stringProp>
+            <stringProp name="TestPlan.comments">Try to perform GET of  device_lastupdate, verifies is possible channel with type WRITE to read and is status code 500 Server error.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="49586">200</stringProp>
+                <stringProp name="52469">500</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
@@ -2728,7 +2728,7 @@ vars.put(&quot;device_lastupdate&quot;,&quot;services/device/${device_id_channel
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="47924005">&quot;deviceID&quot;:&quot;${device_id_channelwrite}&quot;,&quot;componentID&quot;:&quot;${component_id_write}&quot;,&quot;value&quot;:&quot;${value}&quot;</stringProp>
+                <stringProp name="-665177034">500 Server Error</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
