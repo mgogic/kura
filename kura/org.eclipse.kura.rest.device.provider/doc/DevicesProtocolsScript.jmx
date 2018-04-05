@@ -5,7 +5,7 @@
       <stringProp name="TestPlan.comments"> Test plan contains list of all required parameters for Device and Protocol tests</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
-      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="ip_address" elementType="Argument">
@@ -75,7 +75,7 @@
           </elementProp>
           <elementProp name="number_of_users" elementType="Argument">
             <stringProp name="Argument.name">number_of_users</stringProp>
-            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.value">${__P(USERS,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="component_id_read" elementType="Argument">
@@ -93,6 +93,11 @@
             <stringProp name="Argument.value">devicewithchannelwrite</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="execution_time" elementType="Argument">
+            <stringProp name="Argument.name">execution_time</stringProp>
+            <stringProp name="Argument.value">${__P(EXECTIME,3)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
@@ -105,11 +110,12 @@
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">${number_of_users}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${execution_time}</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-        <stringProp name="TestPlan.comments"> This is a test thread where can be set number of users for the tests. number_of_users variable is set in the SetTestPlanParameters</stringProp>
+        <stringProp name="TestPlan.comments"> This is a test thread where can be set number of users for the tests and ramp up period. The number_of_users and  execution_time variables are set in the SetTestPlanParameters and it could be set also in Jenkins project.</stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
       </ThreadGroup>
       <hashTree>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Set_Endpoints" enabled="true">
@@ -2695,7 +2701,7 @@ vars.put(&quot;device_lastupdate&quot;,&quot;services/device/${device_id_channel
             </DurationAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_51_Get_DeviceLastUpdate_CheckChannelValueDidntChangeToTrue" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1_51_Get_DeviceLastUpdate_CheckChannelWriteCanBeRead" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2712,12 +2718,12 @@ vars.put(&quot;device_lastupdate&quot;,&quot;services/device/${device_id_channel
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
             <stringProp name="HTTPSampler.response_timeout">20000</stringProp>
-            <stringProp name="TestPlan.comments">Try to perform GET of  device_lastupdate, verifies is channel with type WRITE changed value to True and is status code 200 </stringProp>
+            <stringProp name="TestPlan.comments">Try to perform GET of  device_lastupdate, verifies is possible channel with type WRITE to read and is status code 500 Server error.</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseCode" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="49586">200</stringProp>
+                <stringProp name="52469">500</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
@@ -2728,7 +2734,7 @@ vars.put(&quot;device_lastupdate&quot;,&quot;services/device/${device_id_channel
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="VerifyResponseData" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="47924005">&quot;deviceID&quot;:&quot;${device_id_channelwrite}&quot;,&quot;componentID&quot;:&quot;${component_id_write}&quot;,&quot;value&quot;:&quot;${value}&quot;</stringProp>
+                <stringProp name="-665177034">500 Server Error</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
