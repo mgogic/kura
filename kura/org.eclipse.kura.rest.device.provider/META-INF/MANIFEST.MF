@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.eclipse.kura.device.rest
+Bundle-Name: org.eclipse.kura.rest.device.provider
 Bundle-SymbolicName: org.eclipse.kura.rest.device.provider;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Eclipse Kura

@@ -182,7 +182,7 @@ public class ProtocolRestService {
         return asset;
     }
 
-    private boolean isDeviceConnectedViaProtocol(Asset asset, String protocolId) {
+    protected boolean isDeviceConnectedViaProtocol(Asset asset, String protocolId) {
         boolean isConnected = false;
 
         if (asset.getAssetConfiguration().getDriverPid().equals(protocolId)) {
