@@ -32,7 +32,6 @@ import org.eclipse.kura.channel.ChannelFlag;
 import org.eclipse.kura.channel.ChannelRecord;
 import org.eclipse.kura.channel.ChannelStatus;
 import org.eclipse.kura.channel.ChannelType;
-import org.eclipse.kura.core.testutil.TestUtil;
 import org.eclipse.kura.type.DataType;
 import org.eclipse.kura.type.TypedValue;
 import org.eclipse.kura.type.TypedValues;
@@ -284,7 +283,7 @@ public class DeviceRestServiceTest {
 
         Map<String, Channel> mockChannelsList = new TreeMap<>();
         Map<String, Object> channelConfig = new HashMap<>();
-        Channel ch1 = new Channel("ch1", ChannelType.READ, DataType.BOOLEAN, channelConfig);
+        Channel ch1 = new Channel(componentId, ChannelType.READ, DataType.BOOLEAN, channelConfig);
 
         mockChannelsList.put(ch1.getName(), ch1);
 
@@ -298,29 +297,22 @@ public class DeviceRestServiceTest {
 
         when(asset.getAssetConfiguration()).thenReturn(assetConfig);
 
-        List<WriteRequest> requests = new ArrayList<>();
-        addRequest(requests, "ch1", DataType.BOOLEAN, "true");
+        String mockData = "{\"channels\": [{\"name\": \"cid1\", \"type\": \"BOOLEAN\", \"value\": true }]}";
 
-        List<String> mockExistingChannelNames = new ArrayList<>(
-                asset.getAssetConfiguration().getAssetChannels().keySet());
+        Response testResponseForExecuteCommand = Response.ok().entity("Action sent.").build();
+        Response testResponseForWriteToChannel = Response.ok().entity("Write sent").build();
 
-        WriteRequestList requestsMock = new WriteRequestList() {
+        // Test Response data and Response code
+        assertEquals(testResponseForExecuteCommand.getEntity(),
+                svc.executeSpecificCommand(pid, "write", mockData).getEntity());
+        assertEquals(testResponseForExecuteCommand.getStatus(),
+                svc.executeSpecificCommand(pid, "write", mockData).getStatus());
 
-            @Override
-            public List<WriteRequest> getRequests() {
-                return requests;
-            }
-
-            @Override
-            public boolean isValid() {
-                return true;
-            }
-        };
-        String mockData = "{\"channels\": [{\"name\": \"ch1\", \"type\": \"BOOLEAN\", \"value\": true }]}";
-        Response testResponse = Response.ok().entity("Action sent.").build();
-
-        assertEquals(testResponse.getEntity(), svc.executeSpecificCommand(pid, "write", mockData).getEntity());
-
+        // test write data to channel and response code
+        assertEquals(testResponseForWriteToChannel.getEntity(),
+                svc.writeDataToChannel(pid, componentId, mockData).getEntity());
+        assertEquals(testResponseForWriteToChannel.getStatus(),
+                svc.writeDataToChannel(pid, componentId, mockData).getStatus());
     }
 
     @Test
@@ -394,35 +386,15 @@ public class DeviceRestServiceTest {
         when(asset.getAssetConfiguration()).thenReturn(assetConfig);
 
         when(asset.read(mockChannelsList.keySet())).thenReturn(records);
-        List<String> existingChannelNames = new ArrayList<>(mockChannelsList.keySet());
 
         ReadRequest requestMock = mock(ReadRequest.class);
         try {
             svc.executeSpecificCommand(pid, "read", requestMock.toString());
             fail("Expected an exception.");
+
         } catch (WebApplicationException e) {
             // OK
         }
-
-        // verify(requestMock).isValid();
-    }
-
-    private void assertChannelWrite(List<ChannelRecord> records, int idx, String channel, TypedValue value) {
-        ChannelRecord channelRecord = records.get(idx);
-        assertEquals(channel, channelRecord.getChannelName());
-        assertEquals(value, channelRecord.getValue());
-
-        channelRecord.setChannelStatus(new ChannelStatus(ChannelFlag.SUCCESS));
-    }
-
-    private void addRequest(List<WriteRequest> requests, String name, DataType type, String value)
-            throws NoSuchFieldException {
-
-        WriteRequest request = new WriteRequest();
-        TestUtil.setFieldValue(request, "name", name);
-        TestUtil.setFieldValue(request, "type", type);
-        TestUtil.setFieldValue(request, "value", value);
-        requests.add(request);
     }
 
     private Gson getChannelSerializer() {

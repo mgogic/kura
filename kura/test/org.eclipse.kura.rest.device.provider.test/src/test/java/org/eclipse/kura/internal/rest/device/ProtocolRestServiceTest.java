@@ -31,15 +31,21 @@ import org.eclipse.kura.channel.ChannelFlag;
 import org.eclipse.kura.channel.ChannelRecord;
 import org.eclipse.kura.channel.ChannelStatus;
 import org.eclipse.kura.channel.ChannelType;
+import org.eclipse.kura.core.testutil.TestUtil;
 import org.eclipse.kura.driver.Driver;
+import org.eclipse.kura.driver.Driver.ConnectionException;
 import org.eclipse.kura.driver.DriverService;
 import org.eclipse.kura.type.DataType;
 import org.eclipse.kura.type.TypedValues;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 
 public class ProtocolRestServiceTest {
+
+    Logger logger = LoggerFactory.getLogger(ProtocolRestServiceTest.class);
 
     @Test(expected = WebApplicationException.class)
     public void testConnectToDeviceAssetAndDriverNotFound() throws KuraException {
@@ -122,11 +128,6 @@ public class ProtocolRestServiceTest {
     }
 
     @Test
-    public void testWriteViaProtocol() {
-
-    }
-
-    @Test
     public void readViaProtocol() throws KuraException {
 
         ProtocolRestService svc = new ProtocolRestService() {
@@ -140,7 +141,7 @@ public class ProtocolRestServiceTest {
 
         String protocolId = "pid1";
         String deviceId = "pid2";
-        String componentId = "pid3";
+
         Gson gson = new Gson();
 
         AssetService asMock = mock(AssetService.class);
@@ -253,4 +254,78 @@ public class ProtocolRestServiceTest {
 
     }
 
+    @Test
+    public void testWriteViaProtocol() throws NoSuchFieldException, ConnectionException {
+
+        ProtocolRestService svc = new ProtocolRestService();
+
+        String protocolId = "pid1";
+        String deviceId = "pid2";
+
+        AssetService asMock = mock(AssetService.class);
+        svc.setAssetService(asMock);
+
+        DriverService driverMock = mock(DriverService.class);
+        svc.setDriverService(driverMock);
+
+        Driver driver = mock(Driver.class);
+        when(driverMock.getDriver(protocolId)).thenReturn(driver);
+
+        Asset asset = mock(Asset.class);
+        when(asMock.getAsset(deviceId)).thenReturn(asset);
+
+        Map<String, Channel> mockChannelsList = new TreeMap<>();
+        Map<String, Object> channelConfig = new HashMap<>();
+
+        Channel ch1 = new Channel("id1", ChannelType.READ, DataType.BOOLEAN, channelConfig);
+        Channel ch2 = new Channel("id2", ChannelType.READ, DataType.BOOLEAN, channelConfig);
+
+        mockChannelsList.put(ch1.getName(), ch1);
+        mockChannelsList.put(ch2.getName(), ch2);
+
+        List<ChannelRecord> records = new ArrayList<>();
+
+        ChannelRecord record1 = ChannelRecord.createReadRecord(ch1.getName(), ch1.getValueType());
+        record1.setChannelStatus(new ChannelStatus(ChannelFlag.SUCCESS));
+        record1.setValue(TypedValues.newBooleanValue(true));
+        records.add(record1);
+
+        AssetConfiguration assetConfig = new AssetConfiguration("description", protocolId, mockChannelsList);
+
+        when(asset.getAssetConfiguration()).thenReturn(assetConfig);
+
+        List<WriteRequest> requests = new ArrayList<>();
+        addRequest(requests, "id1", DataType.BOOLEAN, "true");
+
+        WriteRequestList requestsMock = new WriteRequestList() {
+
+            @Override
+            public List<WriteRequest> getRequests() {
+                return requests;
+            }
+
+            @Override
+            public boolean isValid() {
+                return true;
+            }
+        };
+
+        Response testResponse = Response.ok("Write succeeded").build();
+        Response expectedResponse = svc.writeViaProtocol(protocolId, deviceId, requestsMock);
+
+        // test response code and entity
+        assertEquals(testResponse.getEntity(), expectedResponse.getEntity());
+        assertEquals(testResponse.getStatus(), expectedResponse.getStatus());
+
+    }
+
+    private void addRequest(List<WriteRequest> requests, String name, DataType type, String value)
+            throws NoSuchFieldException {
+
+        WriteRequest request = new WriteRequest();
+        TestUtil.setFieldValue(request, "name", name);
+        TestUtil.setFieldValue(request, "type", type);
+        TestUtil.setFieldValue(request, "value", value);
+        requests.add(request);
+    }
 }
