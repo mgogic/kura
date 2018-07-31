@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2011, 2017 Eurotech and/or its affiliates
+
+     All rights reserved. This program and the accompanying materials
+     are made available under the terms of the Eclipse Public License v1.0
+     which accompanies this distribution, and is available at
+     http://www.eclipse.org/legal/epl-v10.html
+
+    Contributors:
+      Eurotech
+
+-->
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
+    <OCD id="org.eclipse.kura.linux.excavator.subscriber.SubscriberService"
+         name="Milan" 
+         description="Configuration of Cloud subscriber.">
+        
+        <Icon resource="http://s3.amazonaws.com/kura-resources/application/icon/applications-other.png" size="32"/>
+        
+        <AD id="cloud.service.pid"
+            name="cloud.service.pid"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="org.eclipse.kura.cloud.CloudService"
+            description="Specify the pid of the Cloud Service that has to used to publish messages to the cloud platform.">
+        </AD>
+        
+        <AD id="app.id"
+            name="app.id"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="DEFAULT_ID"
+            description="Application ID">
+        </AD>
+   
+
+
+        
+            
+        <AD id="subscribe.topic"  
+            name="subscribe.topic"
+            type="String"
+            cardinality="0" 
+            required="true"
+            default="inbound/#" 
+            description="Application topic used for incoming messages from cloud. Will subscribe to #account-name/#client-id/#app.name/#subscribe.topic/">       
+        </AD>
+        
+        
+        
+    </OCD>
+    <Designate pid="org.eclipse.kura.linux.excavator.subscriber.SubscriberService" factoryPid="org.eclipse.kura.linux.excavator.subscriber.SubscriberService">
+        <Object ocdref="org.eclipse.kura.linux.excavator.subscriber.SubscriberService"/>
+    </Designate>
+</MetaData>
